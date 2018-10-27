@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
+import About from './components/about';
 import rootReducer from './reducers/root_reducer';
 
 import * as serviceWorker from './serviceWorker';
@@ -18,7 +19,8 @@ ReactDOM.render(
     <Provider store={store}>
     <Router>
       <React.Fragment>
-        <Route exact path="/" component={App} />             
+        <Route exact path="/" component={App} />
+        <Route exact path="/about" render={About} />                      
       </React.Fragment>   
     </Router>
     </Provider>,
