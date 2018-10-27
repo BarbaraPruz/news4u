@@ -8,7 +8,7 @@ import NewsContainer from './containers/news_container';
 class App extends Component {
 
   render() {
-    let container = (this.props.userLoggedIn) ? <NewsContainer/> : <Login />
+    let container = (this.props.userLoggedIn) ? <NewsContainer newsType="headlines"/> : <Login />
 
     return (
       <div className="App">

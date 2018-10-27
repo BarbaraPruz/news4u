@@ -15,7 +15,7 @@ class NavBar extends Component {
         if (this.props.userLoggedIn) {            
             userOptions = 
                 <React.Fragment>
-                    <Navbar.Text>Headlines</Navbar.Text>  
+                    <NavItem><Link to='/news/headlines'>Headlines</Link></NavItem> 
                     <Navbar.Text>Stories</Navbar.Text>  
                     <Navbar.Text>Preferences</Navbar.Text>
                 </React.Fragment>
@@ -36,7 +36,7 @@ class NavBar extends Component {
                 <Navbar.Collapse> 
                     <Nav>
                         {userOptions}
-                        <Link to='/about'>About</Link>                     
+                        <NavItem><Link to='/about'>About</Link></NavItem>                 
                     </Nav>
                     <Nav pullRight>
                         {logoutOption}
@@ -47,6 +47,7 @@ class NavBar extends Component {
     }
 }
 // <NavItem href="/about">About</NavItem> 
+  
 const mapStateToProps = state => {
     return {
       userLoggedIn: state.user.isLoggedIn
