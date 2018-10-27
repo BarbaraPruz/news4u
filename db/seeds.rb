@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(:email => "waltercronkite@domain.com", :password => "test")
-User.create(:email => "edmurrow@domain.com", :password => "test")
-User.create(:email => "mikewallace@domain.com", :password => "test")
+
+u1 = User.create(:email => "waltercronkite@domain.com", :password => "test")
+u2 = User.create(:email => "edmurrow@domain.com", :password => "test")
+u3 = User.create(:email => "mikewallace@domain.com", :password => "test")
 
 sources = [
     {"id":"abc-news","name":"ABC News","description":"Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.","url":"https://abcnews.go.com","category":"general","language":"en","country":"us"},
@@ -104,11 +105,24 @@ sources = [
 ]
 
 sources.each { | source |
-    Source.create( 
-        :source_id => source[:id], 
+    NewsSource.create( 
+        :news_source_id => source[:id], 
         :name => source[:name],
         :description => source[:description],
         :url => source[:url],
         :category => source[:category],
         :country => source[:country])
 }
+
+nyt = NewsSource.find_by(:news_source_id=>"the-new-york-times")
+wp = NewsSource.find_by(:news_source_id=>"the-washington-post")
+cbs = NewsSource.find_by(:news_source_id=>"cbs-news")
+cnbc = NewsSource.find_by(:news_source_id=>"cnbc")
+
+UserNewsSource.create(:user_id => u1.id, :news_source_id => nyt.id)
+UserNewsSource.create(:user_id => u2.id, :news_source_id => wp.id)
+UserNewsSource.create(:user_id => u3.id, :news_source_id => cbs.id)
+UserNewsSource.create(:user_id => u3.id, :news_source_id => cnbc.id)
+
+# Sanity
+puts "#{u1.email} #{u1.news_sources[0].name}"

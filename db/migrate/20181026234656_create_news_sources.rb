@@ -1,7 +1,7 @@
-class CreateSources < ActiveRecord::Migration[5.2]
+class CreateNewsSources < ActiveRecord::Migration[5.2]
   def change
-    create_table :sources do |t|
-      t.string :source_id
+    create_table :news_sources do |t|
+      t.string :news_source_id
       t.string :name
       t.text :description
       t.string :url
