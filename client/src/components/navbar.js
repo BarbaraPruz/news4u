@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 //import LogoutButton from './logout'
@@ -29,13 +30,13 @@ class NavBar extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                    <a href="/">News4u</a>
+                    <Link to='/'>News4u</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
                 <Navbar.Collapse> 
                     <Nav>
                         {userOptions}
-                        <NavItem href="/about">About</NavItem>                                                  
+                        <Link to='/about'>About</Link>                     
                     </Nav>
                     <Nav pullRight>
                         {logoutOption}
@@ -45,7 +46,7 @@ class NavBar extends Component {
         );
     }
 }
-
+// <NavItem href="/about">About</NavItem> 
 const mapStateToProps = state => {
     return {
       userLoggedIn: state.user.isLoggedIn
