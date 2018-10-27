@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import './App.css';
+import Login from './containers/login'
 
 class App extends Component {
   render() {
@@ -7,6 +9,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>News4U</h1>
+          <Login />
         </header>
       </div>
     );
