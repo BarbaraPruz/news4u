@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
+
+import { loginUser } from '../actions/user.js'
 
 class Login extends Component {
 
@@ -11,6 +14,7 @@ class Login extends Component {
     handleLogin = (event) => {
         event.preventDefault();
         console.log("Login",this.state);
+        this.props.loginUser(this.state);
     };
 
     handleChange = (event) => this.setState({
@@ -33,4 +37,5 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect(null,{loginUser})(Login)
+
