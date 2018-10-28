@@ -17,6 +17,7 @@ class HeadlinesContainer extends Component {
     renderHeadlines = () => this.props.headlines.map((hl, id) => <li key={id}>{hl.title}-{hl.description}</li> )
 
     render() {
+        console.log("Headlines render",this.props);
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>

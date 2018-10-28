@@ -15,7 +15,7 @@ class NavBar extends Component {
         if (this.props.userLoggedIn) {            
             userOptions = 
                 <React.Fragment>
-                    <NavItem><Link to='/news/headlines'>Headlines</Link></NavItem> 
+                    <NavItem><Link to='/headlines'>Headlines</Link></NavItem> 
                     <Navbar.Text>Stories</Navbar.Text>  
                     <Navbar.Text>Preferences</Navbar.Text>
                 </React.Fragment>
