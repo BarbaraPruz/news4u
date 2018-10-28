@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import './App.css';
 import Login from './containers/login';
-import NewsContainer from './containers/news_container';
+import HeadlinesContainer from './containers/headlines_container';
 
 class App extends Component {
 
   render() {
-    let container = (this.props.userLoggedIn) ? <NewsContainer newsType="headlines"/> : <Login />
+    let container = (this.props.userLoggedIn) ? <HeadlinesContainer /> : <Login />
 
     return (
       <div className="App">

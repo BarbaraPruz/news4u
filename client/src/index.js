@@ -2,24 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { createStore, applyMiddleware, compose } from 'redux'; 
+import { createStore, applyMiddleware } from 'redux'; 
 import { Provider } from 'react-redux'; 
 import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
 import About from './components/about';
-import NewsContainer from './containers/news_container';
+import HeadlinesContainer from './containers/headlines_container';
 import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
 
 import * as serviceWorker from './serviceWorker';
 
-//const store = createStore(rootReducer, applyMiddleware(thunk));
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
-    applyMiddleware(thunk)
-));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
@@ -28,7 +24,7 @@ ReactDOM.render(
         <NavBar />
         <Route exact path="/" component={App} />
         <Route exact path="/about" component={About} />
-        <Route exact path='/news/:newsType' component={NewsContainer} />
+        <Route exact path='/headlines' component={HeadlinesContainer} />
       </React.Fragment>   
     </Router>
     </Provider>,
