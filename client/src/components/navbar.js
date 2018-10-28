@@ -16,16 +16,15 @@ class NavBar extends Component {
             userOptions = 
                 <React.Fragment>
                     <NavItem><Link to='/headlines'>Headlines</Link></NavItem> 
-                    <Navbar.Text>Stories</Navbar.Text>  
-                    <Navbar.Text>Preferences</Navbar.Text>
+                    <Navbar.Text>Stories</Navbar.Text> 
+                    <NavItem><Link to={`/users/${this.props.userId}/edit`}>Preferences</Link></NavItem>                    
                 </React.Fragment>
             logoutOption = 
                 <Nav pullRight>
                     <Navbar.Text>Logout</Navbar.Text>
                 </Nav>
         }
-
-        
+             
         return (
             <Navbar>
                 <Navbar.Header>
@@ -50,7 +49,8 @@ class NavBar extends Component {
   
 const mapStateToProps = state => {
     return {
-      userLoggedIn: state.user.isLoggedIn
+      userLoggedIn: state.user.isLoggedIn,
+      userId: state.user.id
     }
   }
   

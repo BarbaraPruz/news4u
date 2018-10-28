@@ -10,6 +10,7 @@ import './index.css';
 import App from './App';
 import About from './components/about';
 import HeadlinesContainer from './containers/headlines_container';
+import Preferences from './containers/preferences';
 import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/about" component={About} />
         <Route exact path='/headlines' component={HeadlinesContainer} />
+        <Route path='/users/:id/edit' component={Preferences} />
       </React.Fragment>   
     </Router>
     </Provider>,
