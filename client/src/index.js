@@ -10,6 +10,7 @@ import './index.css';
 import App from './App';
 import About from './components/about';
 import HeadlinesContainer from './containers/headlines_container';
+import SearchContainer from './containers/search_container';
 import Preferences from './containers/preferences';
 import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/about" component={About} />
         <Route exact path='/headlines' component={HeadlinesContainer} />
+        <Route exact path='/search' component={SearchContainer} />        
         <Route path='/users/:id/edit' component={Preferences} />
         <Route path='/users/:id/logout' component={Logout} /> 
       </React.Fragment>   

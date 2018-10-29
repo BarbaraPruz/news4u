@@ -40,3 +40,25 @@ export function getNewsSources() {
           .then(data => dispatch({type:"GET_NEWS_SOURCES", payload:data.sources}));  
     };
 }
+
+export function searchingNews() {
+    return {
+        type: 'SEARCHING_NEWS'
+    };
+  }
+  
+
+export function searchNews(newsSources,searchParams) {
+    let newsSourceIds = newsSources.map( source => source.news_source_id );
+    let query=searchParams.topic;
+    return (dispatch) => {
+        dispatch(gettingHeadlines());
+        // TODO: handle error
+        const sources = '&sources='+newsSourceIds.join();
+        let uri = "https://newsapi.org/v2/everything?q="+query+sources+"&apiKey="+apiKey;
+        console.log("going to search",uri);
+        fetch(uri)
+          .then(response => response.json())
+          .then(data => dispatch({type:"SEARCH_NEWS", payload:data.articles}))  
+    };
+}

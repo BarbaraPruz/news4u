@@ -14,7 +14,7 @@ class NavBar extends Component {
             userOptions = 
                 <React.Fragment>
                     <NavItem><Link to='/headlines'>Headlines</Link></NavItem> 
-                    <Navbar.Text>Stories</Navbar.Text> 
+                    <NavItem><Link to={`/search`}>Search</Link></NavItem>                    
                     <NavItem><Link to={`/users/${this.props.userId}/edit`}>Preferences</Link></NavItem>                    
                 </React.Fragment>
             logoutOption = 

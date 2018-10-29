@@ -1,7 +1,8 @@
 export default function newsReducer(
     state = { 
         headlines: [],
-        allSources: []
+        allSources: [],
+        articles: []
     },     
     action) 
 {
@@ -22,6 +23,10 @@ export default function newsReducer(
             });
             return {...state, allSources: work}  
     
+            
+        case "SEARCH_NEWS":   
+            return {...state, articles: action.payload}
+            
         default:
             return state;
     }
