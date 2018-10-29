@@ -16,7 +16,6 @@ export default function userReducer(
             return {...state, isLoggedIn:true, newsSources: action.payload.news_sources}
 
         case "UPDATE_USER_PREFERENCES":
-            // TODO: persist 
             return {...state, newsSources: action.payload.newsSources}
 
         case "LOGOUT_USER":

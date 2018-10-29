@@ -24,7 +24,7 @@ class Preferences extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("Form Submitted!",this.state.selectedSources);
-        this.props.updateUserPreferences({newsSources:this.state.selectedSources});
+        this.props.updateUserPreferences(this.props.userId, {newsSources:this.state.selectedSources});
         this.props.history.push('/');
     }
 
@@ -44,15 +44,17 @@ class Preferences extends Component {
     componentDidMount() {
         //    if logged in, start action to retrieve data for user
         if (this.props.isLoggedIn) {
+            console.log("Preferences did mount");       
             if (this.props.allSources.length === 0) {
                 this.props.getNewsSources()
             }
+            console.log("Preferences did mount-setting selected sources=",this.props.userNewsSources);
             this.setState({selectedSources: this.props.userNewsSources});
         }
     }    
    render() {
        // Todo: FormGroup and FormControl needed for checkboxes?
-        console.log("Preferences",this.props);
+       // console.log("Preferences",this.props);
         // todo: match url to user logged in
         if (!this.props.isLoggedIn)
             return (
@@ -74,6 +76,7 @@ class Preferences extends Component {
 
 const mapStateToProps = state => {
     return {
+      userId: state.user.id,
       isLoggedIn: state.user.isLoggedIn,
       userNewsSources: state.user.newsSources,
       allSources: state.news.allSources

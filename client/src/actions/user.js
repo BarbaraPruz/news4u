@@ -50,9 +50,25 @@ export function getUserPreferences(token, id) {
     };
 }
 
-export function updateUserPreferences(preferences) {
-    return {
-        type: 'UPDATE_USER_PREFERENCES',
-        payload: preferences
-    };
-  }
+
+export function updateUserPreferences(id,preferences) {
+    return (dispatch) => {
+        let token = localStorage.getItem("jwt");
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify(preferences),
+            headers: new Headers({
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json'
+            })
+        };
+        console.log("Update Preferences",id);
+        // TODO: handle error
+        fetch(`/api/users/${id}`, options)
+            .then(res => res.json())
+            .then(res => { 
+                dispatch({type: "UPDATE_USER_PREFERENCES", payload:res})
+            });
+    }
+};
+
