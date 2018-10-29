@@ -15,6 +15,10 @@ export default function userReducer(
             // TODO: confirm payload id matches state id?
             return {...state, isLoggedIn:true, newsSources: action.payload.news_sources}
 
+        case "UPDATE_USER_PREFERENCES":
+            // TODO: persist 
+            return {...state, newsSources: action.payload.newsSources}
+
         case "LOGOUT_USER":
             return { ...state, jwt: null, id: 0, isLoggedIn: false}
 

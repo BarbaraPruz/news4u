@@ -2,26 +2,51 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { getNewsSources } from '../actions/news'
+import { updateUserPreferences } from '../actions/user'
 import SourceCheckbox from '../components/source_checkbox'
 
 class Preferences extends Component {
 
+    state = {
+        selectedSources: []
+    }
+
     isUserSource(source) {
-        let idx = this.props.userNewsSources.findIndex( (s) => s.name===source.name )
+        let idx = this.state.selectedSources.findIndex( (s) => s.news_source_id===source.news_source_id )
         return (idx >= 0) ? true : false;
     }
+
     renderNewsSources = () => 
-        this.props.allSources.map( (source, index) => <SourceCheckbox key={index} val={index} onChange={this.onChange} source={source} checkVal={this.isUserSource(source)} />)
+        this.props.allSources.map( (source, index) => 
+            <SourceCheckbox key={index} val={source.news_source_id} onChange={this.onChange} source={source} checkVal={this.isUserSource(source)} />
+        )
+                                                                                                             
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("Form Submitted!",this.state.selectedSources);
+        this.props.updateUserPreferences({newsSources:this.state.selectedSources});
+    }
 
-                                                                                                                    
-    handleSubmit = (event) => console.log("Form Submitted!");
-
-    onChange = (event) => console.log("On Change",event);
+    onChange = (event) => {
+        let name = event.target.value;
+        let tempSources=this.state.selectedSources;
+        let index = tempSources.findIndex( (s)=> s.news_source_id===name);
+        if (index >= 0)
+            tempSources.splice(index,1);
+        else {
+            tempSources.push(this.props.allSources.find((s) => s.news_source_id===name))
+        }
+        this.setState({selectedSources: tempSources});
+        console.log("Updated Sources", this.state.selectedSources);
+    }
 
     componentDidMount() {
-        //    if logged in, start action to retrieve data for user 
-        if (this.props.allSources.length === 0) {
-            this.props.getNewsSources()
+        //    if logged in, start action to retrieve data for user
+        if (this.props.isLoggedIn) {
+            if (this.props.allSources.length === 0) {
+                this.props.getNewsSources()
+            }
+            this.setState({selectedSources: this.props.userNewsSources});
         }
     }    
    render() {
@@ -54,4 +79,4 @@ const mapStateToProps = state => {
     }
   }
   
-export default connect(mapStateToProps,{getNewsSources}) (Preferences);
+export default connect(mapStateToProps,{getNewsSources,updateUserPreferences}) (Preferences);

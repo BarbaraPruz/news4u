@@ -49,3 +49,10 @@ export function getUserPreferences(token, id) {
             .then(res => dispatch({type: "SET_USER_PREFERENCES", payload:res}))                
     };
 }
+
+export function updateUserPreferences(preferences) {
+    return {
+        type: 'UPDATE_USER_PREFERENCES',
+        payload: preferences
+    };
+  }
