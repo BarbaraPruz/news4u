@@ -25,6 +25,7 @@ class Preferences extends Component {
         event.preventDefault();
         console.log("Form Submitted!",this.state.selectedSources);
         this.props.updateUserPreferences({newsSources:this.state.selectedSources});
+        this.props.history.push('/');
     }
 
     onChange = (event) => {
