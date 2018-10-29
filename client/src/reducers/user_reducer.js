@@ -1,6 +1,7 @@
 export default function userReducer(
     state = { 
         isLoggedIn:false,
+        newsSources: []
     },     
     action) 
 {

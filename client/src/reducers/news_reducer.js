@@ -1,6 +1,7 @@
 export default function newsReducer(
     state = { 
         headlines: [],
+        allSources: []
     },     
     action) 
 {
@@ -10,6 +11,10 @@ export default function newsReducer(
         console.log("get headlines",action.payload);
             return {...state, headlines: action.payload}  
 
+        case "GET_NEWS_SOURCES":
+            console.log("get news sources",action.payload);
+                return {...state, allSources: action.payload}  
+    
         default:
             return state;
     }

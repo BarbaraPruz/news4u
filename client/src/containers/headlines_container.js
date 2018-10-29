@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getHeadlines } from '../actions/news.js'
+import { getHeadlines } from '../actions/news'
 
 class HeadlinesContainer extends Component {
 
     componentDidMount() {
-        console.log("Headlines Container did mount for news sources",this.props.newsSources);
         //    if logged in, start action to retrieve data for user 
         if (this.props.isLoggedIn) {
             this.props.getHeadlines(this.props.newsSources)

@@ -8,7 +8,8 @@ const About =  () =>
         <h2>A Flatiron Online Bootcamp React/Redux portfolio project</h2>
 
         <p>The News4u app lets users retrieve headlines and stories from different news sources.
-        News is retrieved from <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer">NewsAPI.org</a>
+        News is retrieved from <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer">NewsAPI.org</a>.
+        News sources available through News4u app are limited to English.
         </p>      
 
         <p>Stay informed!</p>
