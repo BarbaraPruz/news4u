@@ -16,7 +16,8 @@ export default function userReducer(
             return {...state, isLoggedIn:true, newsSources: action.payload.news_sources}
 
         case "UPDATE_USER_PREFERENCES":
-            return {...state, newsSources: action.payload.newsSources}
+        console.log("UPDATE PREFERENCES REDUCER",action.payload);
+            return {...state, newsSources: action.payload.news_sources}
 
         case "LOGOUT_USER":
             return { ...state, jwt: null, id: 0, isLoggedIn: false}

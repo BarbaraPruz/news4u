@@ -48,7 +48,6 @@ class Preferences extends Component {
             if (this.props.allSources.length === 0) {
                 this.props.getNewsSources()
             }
-            console.log("Preferences did mount-setting selected sources=",this.props.userNewsSources);
             this.setState({selectedSources: this.props.userNewsSources});
         }
     }    
