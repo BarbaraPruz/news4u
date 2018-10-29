@@ -72,3 +72,31 @@ export function updateUserPreferences(id,preferences) {
     }
 };
 
+export function loggingOut() {
+    return {
+        type: 'LOGGING_OUT'
+    };
+  }
+export function logoutUser() {
+    return (dispatch) => {
+        dispatch(loggingOut());
+
+        const token = localStorage.getItem("jwt");
+        const options = {
+            method: 'POST',
+            headers: new Headers({
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json'
+            })
+        };           
+        console.log("Handle Logout");
+        // TODO: handle error
+        fetch("/api/invalidate_token", options)
+   //         .then(res => { console.log("convert resp to json",res); return res.json()})
+            .then(res => {
+                console.log("have result",res);
+                localStorage.setItem("jwt", "");
+                dispatch({type: "LOGOUT_USER", payload:res})
+            });
+    }        
+}

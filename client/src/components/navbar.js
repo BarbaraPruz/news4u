@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-//import LogoutButton from './logout'
 // ToDo: replace navbar.text with navitem
-// ToDo: only show options that are enabled
 // ToDo: not collapsing to hamburger...
 
 class NavBar extends Component {
@@ -21,7 +19,7 @@ class NavBar extends Component {
                 </React.Fragment>
             logoutOption = 
                 <Nav pullRight>
-                    <Navbar.Text>Logout</Navbar.Text>
+                    <NavItem><Link to={`/users/${this.props.userId}/logout`}>Logout</Link></NavItem>                                        
                 </Nav>
         }
              

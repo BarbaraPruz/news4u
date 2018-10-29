@@ -13,6 +13,7 @@ import HeadlinesContainer from './containers/headlines_container';
 import Preferences from './containers/preferences';
 import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
+import Logout from './containers/logout';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route exact path="/about" component={About} />
         <Route exact path='/headlines' component={HeadlinesContainer} />
         <Route path='/users/:id/edit' component={Preferences} />
+        <Route path='/users/:id/logout' component={Logout} /> 
       </React.Fragment>   
     </Router>
     </Provider>,

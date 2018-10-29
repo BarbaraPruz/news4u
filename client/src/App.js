@@ -7,6 +7,7 @@ import HeadlinesContainer from './containers/headlines_container';
 
 class App extends Component {
 
+
   render() {
     let container = (this.props.userLoggedIn) ? <HeadlinesContainer /> : <Login />
 

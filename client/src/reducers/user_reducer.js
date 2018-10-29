@@ -19,7 +19,7 @@ export default function userReducer(
         console.log("UPDATE PREFERENCES REDUCER",action.payload);
             return {...state, newsSources: action.payload.news_sources}
 
-        case "LOGOUT_USER":
+        case "LOGGING_OUT":  // NOTE: we immediately want screen to go to login.  Meanwhile, sending API logout.
             return { ...state, jwt: null, id: 0, isLoggedIn: false}
 
         default:
