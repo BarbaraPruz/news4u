@@ -52,9 +52,9 @@ class Preferences extends Component {
         }
     }    
    render() {
-       // Todo: FormGroup and FormControl needed for checkboxes?
        // console.log("Preferences",this.props);
         // todo: match url to user logged in
+        // todo: refactor and separate out into different components
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>
@@ -64,7 +64,9 @@ class Preferences extends Component {
             <section>
                 <h1>Preferences</h1>
                 <form onSubmit={ event => this.handleSubmit(event) }>
-                    { this.renderNewsSources() }
+                    <table>
+                         {this.renderNewsSources()}
+                    </table>
                     <Button type="submit" >Save</Button>
                 </form> 
             </section>
