@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getHeadlines } from '../actions/news'
+import Headline from '../components/headline'
 
 class HeadlinesContainer extends Component {
 
@@ -11,9 +12,6 @@ class HeadlinesContainer extends Component {
             this.props.getHeadlines(this.props.newsSources)
         }
     }
-
-    // note other fields: content, publishedAt,url,urlToImage
-    renderHeadlines = () => this.props.headlines.map((hl, id) => <li key={id}>{hl.title}-{hl.description}</li> )
 
     render() {
         console.log("Headlines render",this.props);
@@ -25,9 +23,7 @@ class HeadlinesContainer extends Component {
             <div className="headlines_container">
             <section>
                 <h1>Headlines</h1>
-                <ul>
-                    {this.renderHeadlines() }
-                </ul>
+                { this.props.headlines.map((hl, id) => <Headline headline={hl} key={id} /> ) }
             </section>
             </div> 
         )
