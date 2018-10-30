@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Image } from 'react-bootstrap';
+
 
 const HeadlineSection = styled.div`
   padding: 1em;
@@ -8,17 +8,31 @@ const HeadlineSection = styled.div`
   color:#595959;
   text-align: left;
   font-size: 15px;
+  height: auto;
+  width: 100%;
+`;
+
+const HeadlineImage = styled.img`
+    float: left;
+    height: 200px; 
+    padding-right: 2em; 
+`;
+
+const HeadlineText = styled.p`
+    overflow: hidden;
 `;
 
 const Headline =  (props) => 
     <HeadlineSection > 
-        <h3>{props.headline.title}</h3>
-        <h5>{props.headline.pubishedAt}</h5>
-        <h5>{props.headline.description}</h5>
-        <p>{props.headline.content}</p>
-        <h6><a href={props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
-        <h6><a href={props.headline.urlToImage} target="_blank" rel="noopener noreferrer">Image {props.headline.urlToImage}</a></h6>
-        <Image src={props.headline.urlToImage} thumbnail />
+        { props.headline.urlToImage!=null ? <HeadlineImage src={props.headline.urlToImage} /> : null }        
+        <HeadlineText>
+            <h3>{props.headline.title}</h3>
+            <h5>{props.headline.source.name} at {props.headline.publishedAt}</h5>
+            <h5>{props.headline.description}</h5>
+            <p>{props.headline.content}</p>
+            <h6><a href={props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
+            <h6><a href={props.headline.urlToImage} target="_blank" rel="noopener noreferrer">Image {props.headline.urlToImage}</a></h6>
+        </HeadlineText>
     </HeadlineSection>
 ;
 
