@@ -9,7 +9,7 @@
 u1 = User.create(:email => "waltercronkite@domain.com", :password => "test")
 u2 = User.create(:email => "edmurrow@domain.com", :password => "test")
 u3 = User.create(:email => "mikewallace@domain.com", :password => "test")
-
+u4 = User.create(:email => "jonstewart@domain.com", :password => "test")
 sources = [
     # {"id":"abc-news","name":"ABC News","description":"Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.","url":"https://abcnews.go.com","category":"general","language":"en","country":"us"},
     # {"id":"abc-news-au","name":"ABC News (AU)","description":"Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.","url":"http://www.abc.net.au/news","category":"general","language":"en","country":"au"},
@@ -123,6 +123,8 @@ UserNewsSource.create(:user_id => u1.id, :news_source_id => nyt.id)
 UserNewsSource.create(:user_id => u2.id, :news_source_id => wp.id)
 UserNewsSource.create(:user_id => u3.id, :news_source_id => cbs.id)
 UserNewsSource.create(:user_id => u3.id, :news_source_id => cnbc.id)
+UserNewsSource.create(:user_id => u4.id, :news_source_id => nyt.id)
+UserNewsSource.create(:user_id => u4.id, :news_source_id => wp.id)
 
 # Sanity
 puts "#{u1.email} #{u1.news_sources[0].name}"
