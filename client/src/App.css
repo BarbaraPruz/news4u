@@ -1,6 +1,11 @@
 body {
   background-color: #282c34;
 }
+
+.navbar {
+  position: sticky;
+  top: 0;
+}
 section {
   text-align: center;
   min-height: 100vh;

@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 const HeadlineSection = styled.div`
   padding: 1em;
+  margin: 1em auto 1em auto;
   background: white;
   color:#595959;
   text-align: left;
   font-size: 15px;
   height: auto;
-  width: 100%;
+  width: 90%;
 `;
 
 const HeadlineImage = styled.img`
@@ -31,7 +32,6 @@ const Headline =  (props) =>
             <h5>{props.headline.description}</h5>
             <p>{props.headline.content}</p>
             <h6><a href={props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
-            <h6><a href={props.headline.urlToImage} target="_blank" rel="noopener noreferrer">Image {props.headline.urlToImage}</a></h6>
         </HeadlineText>
     </HeadlineSection>
 ;
