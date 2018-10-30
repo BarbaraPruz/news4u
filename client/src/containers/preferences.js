@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { getNewsSources } from '../actions/news'
 import { updateUserPreferences } from '../actions/user'
-import SourceCheckbox from '../components/source_checkbox'
+import SourceTable from '../components/source_table'
+
+import styled from 'styled-components';
+
+const PreferencesFormSection = styled.div`
+  padding: 1em;
+  margin: 1em auto 1em auto;
+  background: white;
+  color:#595959;
+  text-align: left;
+  font-size: 15px;
+  height: auto;
+  width: 90%;
+`;
 
 class Preferences extends Component {
 
     state = {
         selectedSources: []
     }
-
-    isUserSource(source) {
-        let idx = this.state.selectedSources.findIndex( (s) => s.news_source_id===source.news_source_id )
-        return (idx >= 0) ? true : false;
-    }
-
-    renderNewsSources = () => 
-        this.props.allSources.map( (source, index) => 
-            <SourceCheckbox key={index} val={source.news_source_id} onChange={this.onChange} source={source} checkVal={this.isUserSource(source)} />
-        )
-                                                                                                             
+                                                                                                            
     handleSubmit = (event) => {
         event.preventDefault();
         console.log("Form Submitted!",this.state.selectedSources);
@@ -60,17 +63,13 @@ class Preferences extends Component {
                 <p>You need to be logged in to use this option</p>
             );               
         return (
-            <div className="preferences_container">
-            <section>
+            <PreferencesFormSection>
                 <h1>Preferences</h1>
                 <form onSubmit={ event => this.handleSubmit(event) }>
-                    <table>
-                         {this.renderNewsSources()}
-                    </table>
+                    <SourceTable onChange={this.onChange} allSources={this.props.allSources} selectedSources={this.state.selectedSources} />
                     <Button type="submit" >Save</Button>
                 </form> 
-            </section>
-            </div> 
+            </PreferencesFormSection> 
         )
     }
 }
