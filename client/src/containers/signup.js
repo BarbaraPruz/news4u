@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-import './login.css';
 import { signUpUser } from '../actions/user';
+import {Splash, UserForm, UserInput, UserButton} from './landing_page_style.js';
 
 class SignUp extends Component {
 
@@ -23,18 +22,16 @@ class SignUp extends Component {
 
     render() {
         return (
-            <div className="splash">
-                <div className="login-form">
+            <Splash>
+                <UserForm>
                     <h1>news4u sign up</h1>
                     <form onSubmit={ event => this.handleSignUp(event) }>
-                        <FormGroup>
-                            <FormControl type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
-                            <FormControl type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
-                        </FormGroup>{' '}
-                        <Button type="submit" >Sign Up</Button>
+                        <UserInput type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
+                        <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
+                        <UserButton type="submit" >Sign Up</UserButton>
                     </form>   
-                </div>        
-            </div>
+                </UserForm>        
+            </Splash>
         );
     }
 }

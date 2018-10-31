@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-import './login.css';
 import { loginUser } from '../actions/user';
+import {Splash, UserForm, UserInput, UserButton} from './landing_page_style.js';
 
 class Login extends Component {
 
@@ -14,7 +13,6 @@ class Login extends Component {
 
     handleLogin = (event) => {
         event.preventDefault();
-        console.log("Login",this.state);
         this.props.loginUser(this.state);
     };
 
@@ -24,19 +22,17 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="splash">
-                <div className="login-form">
+            <Splash>
+                <UserForm>
                     <h1>news4u login</h1>
                     <form onSubmit={ event => this.handleLogin(event) }>
-                        <FormGroup>
-                            <FormControl type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
-                            <FormControl type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
-                        </FormGroup>{' '}
-                        <Button type="submit" >Login</Button>
+                        <UserInput type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
+                        <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
+                        <UserButton type="submit" >Login</UserButton>
                     </form>
                     <h4>New to news4u?  <a href="/signup">Sign Up!</a></h4>  
-                </div>        
-            </div>
+                </UserForm>        
+            </Splash>
         );
     }
 }
