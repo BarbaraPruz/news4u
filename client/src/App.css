@@ -32,6 +32,12 @@ body {
   color: #353231;
   font-size: 3em;
 }
+
+.content-section h2 {
+  text-align: center;
+  color: #353231;
+}
+
 /* .App-link {
   color: #61dafb;
 } */
