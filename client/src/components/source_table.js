@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import SourceCheckbox from '../components/source_checkbox'
 
-import styled from 'styled-components';
+import './source_table.css'
 
-const InputTable = styled.table`
-  color:#595959;
-`;
 
 class SourceTable extends Component {
 
@@ -21,9 +18,16 @@ class SourceTable extends Component {
                                                                                                              
    render() {
         return (
-            <InputTable>
+            <table>
+                <tr>
+                    <th class="td1">&#x2714;</th>
+                    <th>Source</th>
+                    <th>Category</th>
+                    <th>Description</th> 
+                    <th>URL</th>                   
+                </tr>
                 {this.renderNewsSources()}
-            </InputTable>
+            </table>
         )
     }
 }

@@ -1,13 +1,20 @@
 import React from 'react';
-// todo table row and not just checkbox!
+import styled from 'styled-components';
+
+const TableData1 = styled.td`
+    margin: 2px;
+    text-align: center;
+`;
+
+
+
 const SourceCheckbox =  (props) => {
-    console.log ("Source checkbox",props);
     return (
         <React.Fragment>
             <tr>
-                <td>
+                <TableData1>
                     <input className="formCheckInput" type="checkbox" onChange={props.onChange} checked={props.checkVal} value={props.val} />
-                </td>
+                </TableData1>
                 <td>{props.source.name}</td>
                 <td>{props.source.category}</td>
                 <td>{props.source.description}</td>
