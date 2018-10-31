@@ -1,9 +1,38 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-// ToDo: replace navbar.text with navitem
-// ToDo: not collapsing to hamburger...
+import { NavLink } from "react-router-dom";
+
+import styled from 'styled-components';
+
+const NewsNavbar = styled.div`
+  padding: 1em;
+  width: 100%;
+  border: solid 5px #3F5941;
+  background-color: white;
+  color: #3F5941;
+  text-align: left;
+  height: auto;
+`;
+
+const NewsBrand = styled(NavLink)`
+    width: 100px;
+    padding: 5px 12px 12px 12px;
+    margin: 0 6px 6px;
+    color: #3F5941;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Impact, Times New Roman, Times, serif;
+`;
+
+const NewsLink = styled(NavLink)`
+    width: 100px;
+    padding: 12px;
+    margin: 0 6px 6px;
+    textDecoration: none;
+    color: black;
+    font-size: 18px;
+`;
 
 
 class NavBar extends Component {
@@ -13,37 +42,27 @@ class NavBar extends Component {
         if (this.props.userLoggedIn) {            
             userOptions = 
                 <React.Fragment>
-                    <NavItem><Link to='/headlines'>Headlines</Link></NavItem> 
-                    <NavItem><Link to={`/search`}>Search</Link></NavItem>                    
-                    <NavItem><Link to={`/users/${this.props.userId}/edit`}>Preferences</Link></NavItem>                    
+                    <NewsLink to="/headlines" exact >Headlines</NewsLink> 
+                    <NewsLink to="/search" exact >Search</NewsLink> 
+                    <NewsLink to="/preferences" exact >Preferences</NewsLink>  
                 </React.Fragment>
             logoutOption = 
-                <Nav pullRight>
-                    <NavItem><Link to={`/users/${this.props.userId}/logout`}>Logout</Link></NavItem>                                        
-                </Nav>
+                <NewsLink to="/logout" exact>Logout</NewsLink>            
         }
              
         return (
-            <Navbar>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                    <Link to='/'>News4u</Link>
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Navbar.Collapse> 
-                    <Nav>
-                        {userOptions}
-                        <NavItem><Link to='/about'>About</Link></NavItem>                 
-                    </Nav>
-                    <Nav pullRight>
-                        {logoutOption}
-                    </Nav>
-                </Navbar.Collapse>      
-            </Navbar>
+            <NewsNavbar>
+                <NewsBrand
+                    to="/" exact activeStyle={{textDecoration: 'underline'}}>
+                    news4u
+                </NewsBrand>
+                {userOptions}
+                <NewsLink to="/about" exact >About</NewsLink>
+                {logoutOption}   
+            </NewsNavbar>
         );
     }
 }
-// <NavItem href="/about">About</NavItem> 
   
 const mapStateToProps = state => {
     return {
