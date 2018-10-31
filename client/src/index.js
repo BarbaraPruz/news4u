@@ -15,6 +15,7 @@ import Preferences from './containers/preferences';
 import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
 import Logout from './containers/logout';
+import Footer from './components/footer';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -31,6 +32,7 @@ ReactDOM.render(
         <Route exact path='/search' component={SearchContainer} />        
         <Route path='/users/:id/edit' component={Preferences} />
         <Route path='/users/:id/logout' component={Logout} /> 
+        <Footer />
       </React.Fragment>   
     </Router>
     </Provider>,

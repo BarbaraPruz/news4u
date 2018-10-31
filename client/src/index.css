@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+footer {
+  margin-top: 2em;
+  font-size: 80%;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  color: white;
+}
+footer a {
+  color: white;
+}
