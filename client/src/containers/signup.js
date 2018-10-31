@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 import './login.css';
-import { loginUser } from '../actions/user';
+import { signUpUser } from '../actions/user';
 
-class Login extends Component {
+class SignUp extends Component {
 
     state = {
         email: '',
         password: ''
     }
 
-    handleLogin = (event) => {
+    handleSignUp = (event) => {
         event.preventDefault();
-        console.log("Login",this.state);
-        this.props.loginUser(this.state);
+        this.props.signUpUser(this.state);
     };
 
     handleChange = (event) => this.setState({
@@ -26,20 +25,19 @@ class Login extends Component {
         return (
             <div className="splash">
                 <div className="login-form">
-                    <h1>news4u login</h1>
-                    <form onSubmit={ event => this.handleLogin(event) }>
+                    <h1>news4u sign up</h1>
+                    <form onSubmit={ event => this.handleSignUp(event) }>
                         <FormGroup>
                             <FormControl type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
                             <FormControl type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
                         </FormGroup>{' '}
-                        <Button type="submit" >Login</Button>
-                    </form>
-                    <h4>New to news4u?  <a href="/signup">Sign Up!</a></h4>  
+                        <Button type="submit" >Sign Up</Button>
+                    </form>   
                 </div>        
             </div>
         );
     }
 }
 
-export default connect(null,{loginUser})(Login)
+export default connect(null,{signUpUser})(SignUp)
 

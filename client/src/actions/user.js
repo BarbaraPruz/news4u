@@ -35,6 +35,38 @@ export function loginUser(credentials) {
     };
 }
 
+export function signingUpUser() {
+    return {
+        type: 'SIGNING_UP'
+    };
+  }
+  
+export function signUpUser(credentials) {
+    return (dispatch) => {
+        dispatch(signingUpUser());
+
+        const email = credentials.email;
+        const password = credentials.password;
+  
+        const request = {"email": email, "new_user_pw": password}
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(request),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        };
+        console.log("Signing Up User!",request);
+        // TODO: handle error
+        fetch("api/users", options)
+            .then(res => res.json())
+            .then(res => {
+                console.log("have result",res);
+                dispatch(loginUser(credentials))               
+            });
+    };
+}
+
 // TODO: don't pass token around....
 export function getUserPreferences(token, id) {
     return (dispatch) => {

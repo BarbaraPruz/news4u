@@ -1,15 +1,25 @@
 require 'pry'
 class UsersController < ApplicationController
-    before_action :authenticate_user
+    before_action :authenticate_user, except: [:create]
 
     def show
-        puts "User Show #{params}"
         @user = User.find_by(:id => params[:id])
-        puts "User #{@user.email}"
-        puts "News Sources #{@user.news_sources}"
         # TODO : verify id matches current user
         render json: @user, status: 200
     end
+
+    def create
+        puts "User Create #{params}"
+        @user = User.create(user_params)
+        p @user
+        if @user.valid? then 
+            render json: @user, status: 200
+        else
+            puts "User not valid!"
+            puts "#{@user.errors.full_messages}"
+            render json: '{status: "Error. Failed to create user"}'
+        end
+    end 
 
     def update
         puts "User Update #{params}"
@@ -32,5 +42,12 @@ class UsersController < ApplicationController
         end
 
         render json: @user, status: 200
-    end    
+    end 
+    
+    private
+
+    def user_params
+      params.require(:user).permit(:email, :password)
+    end
+    
 end

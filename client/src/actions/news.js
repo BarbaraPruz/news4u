@@ -10,6 +10,8 @@ export function gettingHeadlines() {
 
 export function getHeadlines(newsSources) {
     let newsSourceIds = newsSources.map( source => source.news_source_id );
+    if (newsSourceIds.length === 0)
+        newsSourceIds.push("cnn");
     console.log("get headlines",newsSourceIds)
     return (dispatch) => {
         dispatch(gettingHeadlines());
