@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const HeadlineSection = styled.div`
   padding: 1em;
-  margin: 1em auto 1em auto;
+  margin: 10px auto 10px auto;
   background: white;
   color:#595959;
   text-align: left;
@@ -15,7 +15,8 @@ const HeadlineSection = styled.div`
 
 const HeadlineImage = styled.img`
     float: left;
-    height: 200px; 
+    height: 220px; 
+    margin-top:20px;
     padding-right: 2em; 
 `;
 

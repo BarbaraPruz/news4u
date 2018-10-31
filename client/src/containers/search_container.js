@@ -25,11 +25,9 @@ class SearchContainer extends Component {
             );               
         return (
             <div className="search_container">
-            <section>
                 <h1>Search for Stories</h1>
                 <SearchForm handleSearch={this.handleSearch}/>
                 <SearchResults />
-            </section>
             </div> 
         )
     }

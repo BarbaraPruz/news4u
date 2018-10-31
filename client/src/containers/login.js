@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
+import './login.css';
 import { loginUser } from '../actions/user';
 
 class Login extends Component {
@@ -23,15 +24,17 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="loginform">
-                <h2>Login</h2>
-                <form onSubmit={ event => this.handleLogin(event) }>
-                    <FormGroup>
-                        <FormControl type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Name" />
-                        <FormControl type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
-                    </FormGroup>{' '}
-                    <Button type="submit" >Login</Button>
-                </form>           
+            <div className="splash">
+                <div className="login-form">
+                    <h1>news4u login</h1>
+                    <form onSubmit={ event => this.handleLogin(event) }>
+                        <FormGroup>
+                            <FormControl type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Name" />
+                            <FormControl type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
+                        </FormGroup>{' '}
+                        <Button type="submit" >Login</Button>
+                    </form>   
+                </div>        
             </div>
         );
     }

@@ -20,7 +20,7 @@ class HeadlinesContainer extends Component {
                 <p>You need to be logged in to use this option</p>
             );               
         return (
-            <div className="headlines_container">
+            <div className="content-section">
             <section>
                 <h1>Headlines</h1>
                 { this.props.headlines.map((hl, id) => <Headline headline={hl} key={id} /> ) }

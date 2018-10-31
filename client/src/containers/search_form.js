@@ -18,7 +18,7 @@ class SearchForm extends Component {
 
     render() {
         return (
-            <div className="search-form">
+            <div className="content-section">
                 <form onSubmit={ event => this.handleSubmit(event) }>
                     <FormGroup>
                         <ControlLabel>Topic</ControlLabel>
