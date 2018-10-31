@@ -22,6 +22,7 @@ class UsersController < ApplicationController
         #         snew.news_source_id == source.news_source_id 
         #     end
         # end
+        #  Consider slice : params.slice(*available_option_keys)
         
         # for each news source in params, find or create by the news_source_id (essentially a name)
         # and then add if needed, add relationship to this user

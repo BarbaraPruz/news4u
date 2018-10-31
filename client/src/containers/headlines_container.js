@@ -21,10 +21,8 @@ class HeadlinesContainer extends Component {
             );               
         return (
             <div className="content-section">
-            <section>
                 <h1>Headlines</h1>
                 { this.props.headlines.map((hl, id) => <Headline headline={hl} key={id} /> ) }
-            </section>
             </div> 
         )
     }

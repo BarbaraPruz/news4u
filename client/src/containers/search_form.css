@@ -1,0 +1,32 @@
+
+.inline-form {  
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    border: 1px solid #5d5856;
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+  }
+  
+.inline-form label {
+    margin: 5px 10px 5px 10px;
+
+  }
+  
+.inline-form input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+  
+.inline-form button {
+    padding-left: 10px;
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+}
+  

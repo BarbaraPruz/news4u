@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 
+import './search_form.css';
+
 class SearchForm extends Component {
 
     state = {
@@ -18,13 +20,11 @@ class SearchForm extends Component {
 
     render() {
         return (
-            <div className="content-section">
+            <div className="inline-form">
                 <form onSubmit={ event => this.handleSubmit(event) }>
-                    <FormGroup>
-                        <ControlLabel>Topic</ControlLabel>
-                        <FormControl type="Test" name="topic" onChange={ event => this.handleChange(event) } placeholder="Search Topic" />
-                    </FormGroup>{' '}                
-                    <Button type="submit" >Search</Button>
+                    <label>Topic</label>
+                    <input type="text" name="topic" onChange={ event => this.handleChange(event) } placeholder="Search Topic" />               
+                    <button type="submit" >Search</button>
                 </form>           
             </div>
         );

@@ -24,7 +24,7 @@ class SearchContainer extends Component {
                 <p>You need to be logged in to use this option</p>
             );               
         return (
-            <div className="search_container">
+            <div className="content-section">
                 <h1>Search for Stories</h1>
                 <SearchForm handleSearch={this.handleSearch}/>
                 <SearchResults />
