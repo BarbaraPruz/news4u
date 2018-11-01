@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { loginUser } from '../actions/user';
-import {Splash, UserForm, UserInput, UserButton} from './landing_page_style.js';
+import {Splash, UserForm, UserInput, UserButton, UserLink} from './landing_page_style.js';
 
 class Login extends Component {
 
@@ -30,7 +30,7 @@ class Login extends Component {
                         <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
                         <UserButton type="submit" >Login</UserButton>
                     </form>
-                    <h4>New to news4u?  <a href="/signup">Sign Up!</a></h4>  
+                    <h4>New to news4u?  <UserLink href="/signup">Sign Up!</UserLink></h4>  
                 </UserForm>        
             </Splash>
         );

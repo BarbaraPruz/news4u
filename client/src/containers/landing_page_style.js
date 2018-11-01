@@ -20,7 +20,7 @@ export const UserForm = styled.div`
     color: #f2efef;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 30%;
     margin-top: 225px;
     text-align: center;
     border-radius: 10px;
@@ -39,4 +39,8 @@ export const UserButton = styled.button`
     color: #464240;
     display: block;
     margin: auto;
+`;
+
+export const UserLink = styled.a`
+    color: #97b599;
 `;
