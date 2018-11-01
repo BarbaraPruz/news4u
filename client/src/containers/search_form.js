@@ -1,7 +1,35 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import styled from 'styled-components';
 
-import './search_form.css';
+export const InlineForm = styled.div`
+    display: block;
+    text-align: center;
+    border: 1px solid #5d5856;
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+`;
+  
+export const InlineLabel = styled.label`
+    margin: 5px 10px 5px 10px;
+`;
+  
+export const InlineInput = styled.input`
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 50%;
+`;
+  
+export const InlineButton = styled.button`
+    padding-left: 10px;
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+`;
 
 class SearchForm extends Component {
 
@@ -20,13 +48,13 @@ class SearchForm extends Component {
 
     render() {
         return (
-            <div className="inline-form">
+            <InlineForm>
                 <form onSubmit={ event => this.handleSubmit(event) }>
-                    <label>Topic</label>
-                    <input type="text" name="topic" onChange={ event => this.handleChange(event) } placeholder="Search Topic" />               
-                    <button type="submit" >Search</button>
+                    <InlineLabel>Topic</InlineLabel>
+                    <InlineInput type="text" name="topic" onChange={ event => this.handleChange(event) } placeholder="Search Topic" />               
+                    <InlineButton type="submit" >Search</InlineButton>
                 </form>           
-            </div>
+            </InlineForm>
         );
     }
 }
