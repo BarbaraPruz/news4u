@@ -20,7 +20,7 @@ const HeadlineImage = styled.img`
     padding-right: 2em; 
 `;
 
-const HeadlineText = styled.p`
+const HeadlineText = styled.div`
     overflow: hidden;
 `;
 
