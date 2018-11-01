@@ -8,7 +8,7 @@ const TableData1 = styled.td`
 
 
 
-const SourceCheckbox =  (props) => {
+const SourceTableRow =  (props) => {
     return (
         <React.Fragment>
             <tr>
@@ -23,4 +23,4 @@ const SourceCheckbox =  (props) => {
         </React.Fragment>
     );}
 
-export default SourceCheckbox;
+export default SourceTableRow;

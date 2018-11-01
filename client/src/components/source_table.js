@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SourceCheckbox from '../components/source_checkbox'
+import SourceTableRow from '../components/source_table_row'
 
+// ToDo: using css vs styled component for even/odd rows backgrounds (nth child check).
 import './source_table.css'
 
 
@@ -13,7 +14,7 @@ class SourceTable extends Component {
 
     renderNewsSources = () => 
         this.props.allSources.map( (source, index) => 
-            <SourceCheckbox key={index} val={source.news_source_id} onChange={this.props.onChange} source={source} checkVal={this.isUserSource(source)} />
+            <SourceTableRow key={index} val={source.news_source_id} onChange={this.props.onChange} source={source} checkVal={this.isUserSource(source)} />
         )
                                                                                                              
    render() {
