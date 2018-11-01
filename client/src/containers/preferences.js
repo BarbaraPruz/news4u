@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import styled from 'styled-components';
+
 import { getNewsSources } from '../actions/news'
 import { updateUserPreferences } from '../actions/user'
 import SourceTable from '../components/source_table'
-
-import styled from 'styled-components';
 
 const PreferencesFormSection = styled.div`
   padding: 1em;
@@ -18,6 +17,14 @@ const PreferencesFormSection = styled.div`
   width: 90%;
 `;
 
+export const SubmitButton = styled.button`
+    background-color: #3F5941;
+    color: white;
+    display: block;
+    margin: auto;
+    font-size: 1.5em;
+`;
+
 class Preferences extends Component {
 
     state = {
@@ -26,9 +33,8 @@ class Preferences extends Component {
                                                                                                             
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log("Form Submitted!",this.state.selectedSources);
         this.props.updateUserPreferences(this.props.userId, {newsSources:this.state.selectedSources});
-        this.props.history.push('/');
+        this.props.history.push('/');   // Go back to Headlines page
     }
 
     onChange = (event) => {
@@ -67,7 +73,7 @@ class Preferences extends Component {
                 <h1>Preferences</h1>
                 <form onSubmit={ event => this.handleSubmit(event) }>
                     <SourceTable onChange={this.onChange} allSources={this.props.allSources} selectedSources={this.state.selectedSources} />
-                    <Button type="submit" >Save</Button>
+                    <SubmitButton type="submit" >Save</SubmitButton>
                 </form> 
             </PreferencesFormSection> 
         )

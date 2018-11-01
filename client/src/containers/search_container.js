@@ -13,12 +13,10 @@ class SearchContainer extends Component {
     }
 
     handleSearch(searchParams) {
-        console.log("Search Container - handle search",searchParams);
         this.props.searchNews(this.props.newsSources,searchParams);
     }
 
     render() {
-        console.log("Search Container render",this.props);
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>
