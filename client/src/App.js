@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
-import Login from './containers/login';
+import LoginForm from './containers/login_form';
 import HeadlinesContainer from './containers/headlines_container';
 
 class App extends Component {
 
 
   render() {
-    let container = (this.props.userLoggedIn) ? <HeadlinesContainer /> : <Login />
+    let container = (this.props.userLoggedIn) ? <HeadlinesContainer /> : <LoginForm />
 
     return (
       <div className="App">

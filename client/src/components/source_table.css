@@ -6,7 +6,7 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #0057ff;
+    background-color: #3F5941;
     color: white;
 };
 
@@ -15,4 +15,8 @@ th {
     text-align: center;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+td a {
+  color: #3F5941;
+}
+
+table tr:nth-child(even){background-color: #e6e6e6;}

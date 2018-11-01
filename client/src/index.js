@@ -16,7 +16,7 @@ import rootReducer from './reducers/root_reducer';
 import NavBar from './components/navbar';
 import Logout from './containers/logout';
 import Footer from './components/footer';
-import SignUp from './containers/signup';
+import SignUpForm from './containers/signup_form';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -28,7 +28,7 @@ ReactDOM.render(
       <React.Fragment>
         <NavBar />
         <Route exact path="/" component={App} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/about" component={About} />
         <Route exact path='/headlines' component={HeadlinesContainer} />
         <Route exact path='/search' component={SearchContainer} />        

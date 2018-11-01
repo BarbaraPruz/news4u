@@ -40,20 +40,20 @@ class Preferences extends Component {
     onChange = (event) => {
         let name = event.target.value;
         let tempSources=this.state.selectedSources;
+        // if changed item was already selected, then deselect (remove it)
         let index = tempSources.findIndex( (s)=> s.news_source_id===name);
         if (index >= 0)
             tempSources.splice(index,1);
+        // else changed item was just checked so add it to the selected items
         else {
             tempSources.push(this.props.allSources.find((s) => s.news_source_id===name))
         }
         this.setState({selectedSources: tempSources});
-        console.log("Updated Sources", this.state.selectedSources);
     }
 
     componentDidMount() {
-        //    if logged in, start action to retrieve data for user
-        if (this.props.isLoggedIn) {
-            console.log("Preferences did mount");       
+        // if logged in, start action to retrieve available news sources
+        if (this.props.isLoggedIn) {     
             if (this.props.allSources.length === 0) {
                 this.props.getNewsSources()
             }
@@ -61,9 +61,7 @@ class Preferences extends Component {
         }
     }    
    render() {
-       // console.log("Preferences",this.props);
-        // todo: match url to user logged in
-        // todo: refactor and separate out into different components
+        // todo: match url to user logged in ?
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>

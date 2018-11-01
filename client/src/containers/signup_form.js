@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { signUpUser } from '../actions/user';
 import {Splash, UserForm, UserInput, UserButton} from './landing_page_style.js';
 
-class SignUp extends Component {
+class SignUpForm extends Component {
 
     state = {
         email: '',
@@ -36,5 +36,5 @@ class SignUp extends Component {
     }
 }
 
-export default connect(null,{signUpUser})(SignUp)
+export default connect(null,{signUpUser})(SignUpForm)
 
