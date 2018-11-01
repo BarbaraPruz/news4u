@@ -25,7 +25,6 @@ const ArticleSection = styled.div`
 // `;
 
 const Article =  (props) => {
-    console.log("Article render",props);
     return (
     <ArticleSection > 
         <h2>{ props.article.title }</h2>

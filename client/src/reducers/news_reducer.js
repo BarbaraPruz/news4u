@@ -9,7 +9,6 @@ export default function newsReducer(
     console.log("NewsReducer", action);
     switch (action.type) { 
         case "GET_HEADLINES":
-        console.log("get headlines",action.payload);
             return {...state, headlines: action.payload}  
 
         case "GET_NEWS_SOURCES":
@@ -26,6 +25,9 @@ export default function newsReducer(
         case "SEARCH_NEWS":   
             return {...state, articles: action.payload}
             
+        case "SEARCH_CLEAR":
+            return {...state, articles: [] }
+
         default:
             return state;
     }

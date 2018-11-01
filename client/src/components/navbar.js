@@ -43,8 +43,7 @@ class NavBar extends Component {
             userOptions = 
                 <React.Fragment>
                     <NewsLink to="/headlines" exact >Headlines</NewsLink> 
-                    <NewsLink to="/search" exact >Search</NewsLink> 
-                    <NewsLink to="/preferences" exact >Preferences</NewsLink>  
+                    <NewsLink to="/search" exact >Search</NewsLink>  
                     <NewsLink to={`/users/${this.props.userId}/edit`}>Preferences</NewsLink>                              
                 </React.Fragment>
             logoutOption = 

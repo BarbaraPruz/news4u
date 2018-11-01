@@ -11,12 +11,10 @@ export default function userReducer(
             return {...state, jwt: action.token, id: action.id}
            
         case "SET_USER_PREFERENCES":
-            console.log("Set User Preferences",action.payload)
             // TODO: confirm payload id matches state id?
             return {...state, isLoggedIn:true, newsSources: action.payload.news_sources}
 
         case "UPDATE_USER_PREFERENCES":
-        console.log("UPDATE PREFERENCES REDUCER",action.payload);
             return {...state, newsSources: action.payload.news_sources}
 
         case "LOGGING_OUT":  // NOTE: we immediately want screen to go to login.  Meanwhile, sending API logout.

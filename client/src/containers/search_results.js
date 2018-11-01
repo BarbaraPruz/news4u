@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Article from '../components/article';
+import {searchClearResults} from '../actions/news';
 
 class SearchResults extends Component {
 
+    componentWillUnmount() {
+        this.props.searchClearResults();
+    }
 
-    render() {  
-        // TODO: prevent from rendering old search results        
+    render() {       
         return (
             <div className="search_results">
                 <h2>Search Results</h2>
@@ -23,4 +26,4 @@ const mapStateToProps = state => {
     }
   }
   
-export default connect(mapStateToProps) (SearchResults);
+export default connect(mapStateToProps,{searchClearResults}) (SearchResults);

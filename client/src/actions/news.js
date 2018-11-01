@@ -79,3 +79,9 @@ export function searchNews(newsSources,searchParams) {
           });
     }
 }
+
+export function searchClearResults() {
+    return {
+        type: 'SEARCH_CLEAR'
+    }
+}
