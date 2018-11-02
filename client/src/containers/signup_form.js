@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loginUser } from '../actions/user';
-import {Splash, UserForm, UserInput, UserButton, UserLink} from './landing_page_style.js';
+import { signUpUser } from '../actions/user';
+import {Splash, UserForm, UserInput, UserButton} from './landing_page_style.js';
 
-class LoginForm extends Component {
+class SignUpForm extends Component {
 
     state = {
         email: '',
         password: ''
     }
 
-    handleLogin = (event) => {
+    handleSignUp = (event) => {
         event.preventDefault();
-        this.props.loginUser(this.state);
+        this.props.signUpUser(this.state);
     };
 
     handleChange = (event) => this.setState({
@@ -24,18 +24,17 @@ class LoginForm extends Component {
         return (
             <Splash>
                 <UserForm>
-                    <h1>news4u login</h1>
-                    <form onSubmit={ event => this.handleLogin(event) }>
+                    <h1>news4u sign up</h1>
+                    <form onSubmit={ event => this.handleSignUp(event) }>
                         <UserInput type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
                         <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
-                        <UserButton type="submit" >Login</UserButton>
-                    </form>
-                    <h4>New to news4u?  <UserLink href="/signup">Sign Up!</UserLink></h4>  
+                        <UserButton type="submit" >Sign Up</UserButton>
+                    </form>   
                 </UserForm>        
             </Splash>
         );
     }
 }
 
-export default connect(null,{loginUser})(LoginForm)
+export default connect(null,{signUpUser})(SignUpForm)
 
