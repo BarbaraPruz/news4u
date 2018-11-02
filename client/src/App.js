@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 
 import './App.css';
-import LoginForm from './containers/login_form';
-import HeadlinesContainer from './containers/headlines_container';
+import LoginContainer from './containers/login_container';
 
 class App extends Component {
 
-
   render() {
-    let container = (this.props.userLoggedIn) ? <HeadlinesContainer /> : <LoginForm />
-
-    return (
-      <div className="App">
-        <section>
-          {container}
-        </section>
-      </div>
-    );
+    if (this.props.userLoggedIn)
+      return ( 
+        <Redirect to={{pathname: "/headlines"  }} /> 
+    )            
+    else return (
+        <div className="App">
+          <section>
+            <LoginContainer />
+          </section>
+        </div>
+    )      
   }
 }
 

@@ -30,7 +30,7 @@ export function loginUser(credentials) {
             .then(res => handleAPIErrors(res))        
             .then(res => res.json())
             .then(res => {
-                console.log("have result",res);
+                console.log("login have result",res);
                 localStorage.setItem("jwt", res.jwt); // TODO: move to reducer?
                 let id = jwt_decode(res.jwt).sub;                
                 dispatch({type:"LOGIN_USER", token:res.jwt, id: id})
@@ -108,4 +108,40 @@ export function logoutUser() {
                 console.log(error);
             });         
     }        
+}
+
+export function signingUpUser() {
+    return {
+        type: 'SIGNING_UP'
+    };
+  }
+  
+export function signUpUser(credentials,history) {
+    return (dispatch) => {
+        dispatch(signingUpUser());
+
+        const email = credentials.email;
+        const password = credentials.password;
+  
+        const request = {user: {"email": email, "password": password}}
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(request),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        };
+        console.log("Signing Up User!",request);
+        // TODO: handle error
+        fetch("api/users", options)
+            .then(res => handleAPIErrors(res))         
+            .then(res => res.json())
+            .then(res => {
+                console.log("have result",res);
+                dispatch(loginUser(credentials))               
+            })
+            .catch(function(error) {
+                console.log(error);
+            }); 
+    };
 }

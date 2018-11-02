@@ -1,25 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const TableData1 = styled.td`
-    margin: 2px;
-    text-align: center;
-`;
-
-
+import { StyledTableRow, StyledData1, StyledTableLink} from './source_table_style';
 
 const SourceTableRow =  (props) => {
     return (
         <React.Fragment>
-            <tr>
-                <TableData1>
+            <StyledTableRow>
+                <StyledData1>
                     <input className="formCheckInput" type="checkbox" onChange={props.onChange} checked={props.checkVal} value={props.val} />
-                </TableData1>
+                </StyledData1>
                 <td>{props.source.name}</td>
                 <td>{props.source.category}</td>
                 <td>{props.source.description}</td>
-                <td><a href={props.source.url} target="_blank" rel="noopener noreferrer">{props.source.url}</a></td>
-            </tr>
+                <td><StyledTableLink href={props.source.url} target="_blank" rel="noopener noreferrer">{props.source.url}</StyledTableLink></td>
+            </StyledTableRow>
         </React.Fragment>
     );}
 

@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 
-import img from '../images/holdingnewspaper2.jpg';
-
-export const Splash = styled.div`
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-image: url(${img});
-    background-size: cover; 
-`;
-
 export const UserForm = styled.div`
     background-color: #464240; 
     color: #f2efef;
@@ -41,6 +26,9 @@ export const UserButton = styled.button`
     margin: auto;
 `;
 
-export const UserLink = styled.a`
-    color: #97b599;
+export const UserLink = styled.button`
+    color: #white;
+    background-color:#3F5941;
+    display: block;
+    margin: auto;
 `;
