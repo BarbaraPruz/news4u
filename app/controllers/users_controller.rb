@@ -8,11 +8,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        puts "User Create #{params}"
-        puts "User Params #{user_params}"
         @user = User.create(user_params)
         @user.news_sources << (NewsSource.find_by(:name =>"CNN"))
-        p @user
         if @user.valid? then 
             render json: @user, status: 200
         else

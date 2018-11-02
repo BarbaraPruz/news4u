@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 
 import './App.css';
-import LoginForm from './containers/login_form';
-
+import LoginContainer from './containers/login_container';
 
 class App extends Component {
 
   render() {
-    console.log("App render",this.props.userLoggedIn);
     if (this.props.userLoggedIn)
       return ( 
         <Redirect to={{pathname: "/headlines"  }} /> 
@@ -17,7 +15,7 @@ class App extends Component {
     else return (
         <div className="App">
           <section>
-            <LoginForm />
+            <LoginContainer />
           </section>
         </div>
     )      

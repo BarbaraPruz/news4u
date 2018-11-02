@@ -30,7 +30,7 @@ export function loginUser(credentials) {
             .then(res => handleAPIErrors(res))        
             .then(res => res.json())
             .then(res => {
-                console.log("have result",res);
+                console.log("login have result",res);
                 localStorage.setItem("jwt", res.jwt); // TODO: move to reducer?
                 let id = jwt_decode(res.jwt).sub;                
                 dispatch({type:"LOGIN_USER", token:res.jwt, id: id})
@@ -116,7 +116,7 @@ export function signingUpUser() {
     };
   }
   
-export function signUpUser(credentials) {
+export function signUpUser(credentials,history) {
     return (dispatch) => {
         dispatch(signingUpUser());
 

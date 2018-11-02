@@ -15,7 +15,7 @@ class HeadlinesContainer extends Component {
     }
 
     render() {
-        console.log("Headlines Render");
+        console.log("Headlines Render",this.props.isLoggedIn);
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>
