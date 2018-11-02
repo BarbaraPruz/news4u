@@ -8,6 +8,7 @@ export default function userReducer(
     console.log("UserReducer", action);
     switch (action.type) { 
         case "LOGIN_USER":
+        // NOTE: not setting isLoggedIn until we get the users preferences
             return {...state, jwt: action.token, id: action.id}
            
         case "SET_USER_PREFERENCES":

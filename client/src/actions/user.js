@@ -123,7 +123,7 @@ export function signUpUser(credentials) {
         const email = credentials.email;
         const password = credentials.password;
   
-        const request = {"email": email, "password": password}
+        const request = {user: {"email": email, "password": password}}
         const options = {
             method: 'POST',
             body: JSON.stringify(request),
