@@ -1,5 +1,12 @@
 import jwt_decode from 'jwt-decode';
 
+function handleAPIErrors(res) {
+    if (!res.ok) {
+        throw Error(res.statusText);
+    }
+    return res;   
+}
+
 export function loggingIn() {
     return {
         type: 'LOGGING_IN'
@@ -10,10 +17,7 @@ export function loginUser(credentials) {
     return (dispatch) => {
         dispatch(loggingIn());
 
-        const email = credentials.email;
-        const password = credentials.password;
-  
-        const request = {"auth": {"email": email, "password": password}}
+        const request = {"auth": {"email": credentials.email, "password": credentials.password}}
         const options = {
             method: 'POST',
             body: JSON.stringify(request),
@@ -21,64 +25,37 @@ export function loginUser(credentials) {
               'Content-Type': 'application/json'
             }
         };
-        console.log("Login User!",request);
-        // TODO: handle error
+        //console.log("Login User!",request);
         fetch("api/user_token", options)
+            .then(res => handleAPIErrors(res))        
             .then(res => res.json())
             .then(res => {
                 console.log("have result",res);
                 localStorage.setItem("jwt", res.jwt); // TODO: move to reducer?
                 let id = jwt_decode(res.jwt).sub;                
                 dispatch({type:"LOGIN_USER", token:res.jwt, id: id})
-                dispatch(getUserPreferences(res.jwt, id))               
-            });
+                dispatch(getUserPreferences(id))               
+            })
+            .catch(function(error) {
+                console.log(error);
+            });             
     };
 }
 
-export function signingUpUser() {
-    return {
-        type: 'SIGNING_UP'
-    };
-  }
-  
-export function signUpUser(credentials) {
+export function getUserPreferences( id) {
     return (dispatch) => {
-        dispatch(signingUpUser());
-
-        const email = credentials.email;
-        const password = credentials.password;
-  
-        const request = {"email": email, "new_user_pw": password}
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(request),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-        };
-        console.log("Signing Up User!",request);
-        // TODO: handle error
-        fetch("api/users", options)
-            .then(res => res.json())
-            .then(res => {
-                console.log("have result",res);
-                dispatch(loginUser(credentials))               
-            });
-    };
-}
-
-// TODO: don't pass token around....
-export function getUserPreferences(token, id) {
-    return (dispatch) => {
-        console.log("Getting User Preferences, id",id);
-        // TODO: handle error               
+        let token = localStorage.getItem("jwt");                     
         return fetch(`/api/users/${id}`, 
                     { headers: new Headers({
                         'Authorization': `Bearer ${token}`, 
                         'Content-Type': 'application/json'
                     })})
+            .then(res => handleAPIErrors(res))                            
             .then(res => res.json())
-            .then(res => dispatch({type: "SET_USER_PREFERENCES", payload:res}))                
+            .then(res => dispatch({type: "SET_USER_PREFERENCES", payload:res})) 
+            .catch(function(error) {
+                console.log(error);
+            })                     
     };
 }
 
@@ -94,13 +71,14 @@ export function updateUserPreferences(id,preferences) {
                 'Content-Type': 'application/json'
             })
         };
-        console.log("Update Preferences",id);
-        // TODO: handle error
+
         fetch(`/api/users/${id}`, options)
+            .then(res => handleAPIErrors(res))         
             .then(res => res.json())
-            .then(res => { 
-                dispatch({type: "UPDATE_USER_PREFERENCES", payload:res})
-            });
+            .then(res => dispatch({type: "UPDATE_USER_PREFERENCES", payload:res}))
+            .catch(function(error) {
+                console.log(error);
+            }) ;
     }
 };
 
@@ -121,14 +99,13 @@ export function logoutUser() {
                 'Content-Type': 'application/json'
             })
         };           
-        console.log("Handle Logout");
-        // TODO: handle error
         fetch("/api/invalidate_token", options)
-   //         .then(res => { console.log("convert resp to json",res); return res.json()})
+            .then(res => handleAPIErrors(res))         
             .then(res => {
-                console.log("have result",res);
                 localStorage.setItem("jwt", "");
                 dispatch({type: "LOGOUT_USER", payload:res})
-            });
+            }).catch(function(error) {
+                console.log(error);
+            });         
     }        
 }

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   scope '/api' do
     get '/users/:id' => 'users#show'
     patch '/users/:id' => 'users#update'
-    post '/users' => 'users#create'
     
     post 'user_token' => 'user_token#create'
     post 'invalidate_token' => 'user_token#invalidate'

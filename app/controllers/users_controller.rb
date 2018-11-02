@@ -7,19 +7,6 @@ class UsersController < ApplicationController
         render json: @user, status: 200
     end
 
-    def create
-        puts "User Create #{params}"
-        @user = User.create(user_params)
-        p @user
-        if @user.valid? then 
-            render json: @user, status: 200
-        else
-            puts "User not valid!"
-            puts "#{@user.errors.full_messages}"
-            render json: '{status: "Error. Failed to create user"}'
-        end
-    end 
-
     def update
         puts "User Update #{params}"
         # TODO : verify id matches current user        
