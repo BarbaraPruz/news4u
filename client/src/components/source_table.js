@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+
 import SourceTableRow from '../components/source_table_row'
+import { StyledTable, StyledTableHeader, StyledTableRow, StyledTableHeaderTD1} from './source_table_style';
 
-// ToDo: using css vs styled component for even/odd rows backgrounds (nth child check).
-import './source_table.css'
-
+ 
+//   .td1 {
+//       margin: 2px;
+//       text-align: center;
+//   }
+  
+  
 
 class SourceTable extends Component {
 
@@ -19,16 +25,16 @@ class SourceTable extends Component {
                                                                                                              
    render() {
         return (
-            <table>
-                <tr>
-                    <th class="td1">&#x2714;</th>
-                    <th>Source</th>
-                    <th>Category</th>
-                    <th>Description</th> 
-                    <th>URL</th>                   
-                </tr>
+            <StyledTable>
+                <StyledTableRow>
+                    <StyledTableHeaderTD1 >&#x2714;</StyledTableHeaderTD1>
+                    <StyledTableHeader>Source</StyledTableHeader>
+                    <StyledTableHeader>Category</StyledTableHeader>
+                    <StyledTableHeader>Description</StyledTableHeader> 
+                    <StyledTableHeader>URL</StyledTableHeader>                   
+                </StyledTableRow>
                 {this.renderNewsSources()}
-            </table>
+            </StyledTable>
         )
     }
 }
