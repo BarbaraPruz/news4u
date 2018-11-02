@@ -13,6 +13,8 @@ const NewsNavbar = styled.div`
   color: #3F5941;
   text-align: left;
   height: auto;
+  position: fixed;
+  top: 0; 
 `;
 
 const NewsBrand = styled(NavLink)`
