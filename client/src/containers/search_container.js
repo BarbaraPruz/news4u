@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SearchForm from './search_form';
+import SearchForm from '../components/search_form';
 import SearchResults from './search_results';
 import { searchNews } from '../actions/news';
 

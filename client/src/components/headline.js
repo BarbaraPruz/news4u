@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 
-
 const HeadlineSection = styled.div`
   padding: 1em;
   margin: 10px auto 10px auto;

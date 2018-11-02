@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 
-
 const ArticleSection = styled.div`
   padding: 1em;
   margin: 10px auto 10px auto;
@@ -13,19 +12,7 @@ const ArticleSection = styled.div`
   width: 90%;
 `;
 
-// const HeadlineImage = styled.img`
-//     float: left;
-//     height: 220px; 
-//     margin-top:20px;
-//     padding-right: 2em; 
-// `;
-
-// const HeadlineText = styled.p`
-//     overflow: hidden;
-// `;
-
-const Article =  (props) => {
-    return (
+const Article =  (props) => 
     <ArticleSection > 
         <h2>{ props.article.title }</h2>
         <h5>Author: {props.article.author}</h5>
@@ -33,7 +20,6 @@ const Article =  (props) => {
         <p>{ props.article.content }</p>
         <h6><a href={props.article.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
     </ArticleSection>
-    )
 ;
-}
+
 export default Article;

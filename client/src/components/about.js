@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const About =  () =>
     <div className="content-section">
         <h1>News4u - Customize your news feed!</h1>

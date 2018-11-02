@@ -59,8 +59,9 @@ class Preferences extends Component {
             }
             this.setState({selectedSources: this.props.userNewsSources});
         }
-    }    
-   render() {
+    }
+
+    render() {
         // todo: match url to user logged in ?
         if (!this.props.isLoggedIn)
             return (

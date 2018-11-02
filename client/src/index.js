@@ -13,7 +13,7 @@ import HeadlinesContainer from './containers/headlines_container';
 import SearchContainer from './containers/search_container';
 import Preferences from './containers/preferences';
 import rootReducer from './reducers/root_reducer';
-import NavBar from './components/navbar';
+import NavBar from './containers/navbar';
 import Logout from './containers/logout';
 import Footer from './components/footer';
 import SignUpForm from './containers/signup_form';
