@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 const HeadlineSection = styled.div`
   padding: 1em;
-  margin: 10px auto 10px auto;
+  margin: 5px auto 5px auto;
   background: white;
   color:#595959;
   text-align: left;
   font-size: 15px;
   height: auto;
   width: 90%;
+  float: left;
 `;
 
 const HeadlineImage = styled.img`

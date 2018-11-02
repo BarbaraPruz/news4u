@@ -6,21 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = User.create(:email => "waltercronkite@domain.com", :password => "test")
-u2 = User.create(:email => "edmurrow@domain.com", :password => "test")
-u3 = User.create(:email => "mikewallace@domain.com", :password => "test")
-u4 = User.create(:email => "jonstewart@domain.com", :password => "test")
 sources = [
     # {"id":"abc-news","name":"ABC News","description":"Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.","url":"https://abcnews.go.com","category":"general","language":"en","country":"us"},
     # {"id":"abc-news-au","name":"ABC News (AU)","description":"Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.","url":"http://www.abc.net.au/news","category":"general","language":"en","country":"au"},
     # {"id":"al-jazeera-english","name":"Al Jazeera English","description":"News, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule.","url":"http://www.aljazeera.com","category":"general","language":"en","country":"us"},
-    # {"id":"ars-technica","name":"Ars Technica","description":"The PC enthusiast's resource. Power users and the tools they love, without computing religion.","url":"http://arstechnica.com","category":"technology","language":"en","country":"us"},
+    {"id":"ars-technica","name":"Ars Technica","description":"The PC enthusiast's resource. Power users and the tools they love, without computing religion.","url":"http://arstechnica.com","category":"technology","language":"en","country":"us"},
     # {"id":"associated-press","name":"Associated Press","description":"The AP delivers in-depth coverage on the international, politics, lifestyle, business, and entertainment news.","url":"https://apnews.com/","category":"general","language":"en","country":"us"},
     # {"id":"australian-financial-review","name":"Australian Financial Review","description":"The Australian Financial Review reports the latest news from business, finance, investment and politics, updated in real time. It has a reputation for independent, award-winning journalism and is essential reading for the business and investor community.","url":"http://www.afr.com","category":"business","language":"en","country":"au"},
     # {"id":"axios","name":"Axios","description":"Axios are a new media company delivering vital, trustworthy news and analysis in the most efficient, illuminating and shareable ways possible.","url":"https://www.axios.com","category":"general","language":"en","country":"us"},
     # {"id":"bbc-news","name":"BBC News","description":"Use BBC News for up-to-the-minute news, breaking news, video, audio and feature stories. BBC News provides trusted World and UK news as well as local and regional perspectives. Also entertainment, business, science, technology and health news.","url":"http://www.bbc.co.uk/news","category":"general","language":"en","country":"gb"},
     # {"id":"bbc-sport","name":"BBC Sport","description":"The home of BBC Sport online. Includes live sports coverage, breaking news, results, video, audio and analysis on Football, F1, Cricket, Rugby Union, Rugby League, Golf, Tennis and all the main world sports, plus major events such as the Olympic Games.","url":"http://www.bbc.co.uk/sport","category":"sports","language":"en","country":"gb"},
-    # {"id":"bleacher-report","name":"Bleacher Report","description":"Sports journalists and bloggers covering NFL, MLB, NBA, NHL, MMA, college football and basketball, NASCAR, fantasy sports and more. News, photos, mock drafts, game scores, player profiles and more!","url":"http://www.bleacherreport.com","category":"sports","language":"en","country":"us"},
+    {"id":"bleacher-report","name":"Bleacher Report","description":"Sports journalists and bloggers covering NFL, MLB, NBA, NHL, MMA, college football and basketball, NASCAR, fantasy sports and more. News, photos, mock drafts, game scores, player profiles and more!","url":"http://www.bleacherreport.com","category":"sports","language":"en","country":"us"},
     # {"id":"bloomberg","name":"Bloomberg","description":"Bloomberg delivers business and markets news, data, analysis, and video to the world, featuring stories from Businessweek and Bloomberg News.","url":"http://www.bloomberg.com","category":"business","language":"en","country":"us"},
     # {"id":"breitbart-news","name":"Breitbart News","description":"Syndicated news and opinion website providing continuously updated headlines to top news and analysis sources.","url":"http://www.breitbart.com","category":"general","language":"en","country":"us"},
     # {"id":"business-insider","name":"Business Insider","description":"Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. Launched in 2007, the site is now the largest business news site on the web.","url":"http://www.businessinsider.com","category":"business","language":"en","country":"us"},
@@ -28,13 +24,13 @@ sources = [
     # {"id":"buzzfeed","name":"Buzzfeed","description":"BuzzFeed is a cross-platform, global network for news and entertainment that generates seven billion views each month.","url":"https://www.buzzfeed.com","category":"entertainment","language":"en","country":"us"},
     # {"id":"cbc-news","name":"CBC News","description":"CBC News is the division of the Canadian Broadcasting Corporation responsible for the news gathering and production of news programs on the corporation's English-language operations, namely CBC Television, CBC Radio, CBC News Network, and CBC.ca.","url":"http://www.cbc.ca/news","category":"general","language":"en","country":"ca"},
     {"id":"cbs-news","name":"CBS News","description":"CBS News: dedicated to providing the best in journalism under standards it pioneered at the dawn of radio and television and continue in the digital age.","url":"http://www.cbsnews.com","category":"general","language":"en","country":"us"},
-    {"id":"cnbc","name":"CNBC","description":"Get latest business news on stock markets, financial & earnings on CNBC. View world markets streaming charts & video; check stock tickers and quotes.","url":"http://www.cnbc.com","category":"business","language":"en","country":"us"},
-    # {"id":"cnn","name":"CNN","description":"View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN","url":"http://us.cnn.com","category":"general","language":"en","country":"us"},
-    # {"id":"crypto-coins-news","name":"Crypto Coins News","description":"Providing breaking cryptocurrency news - focusing on Bitcoin, Ethereum, ICOs, blockchain technology, and smart contracts.","url":"https://www.ccn.com","category":"technology","language":"en","country":"us"},
+    # {"id":"cnbc","name":"CNBC","description":"Get latest business news on stock markets, financial & earnings on CNBC. View world markets streaming charts & video; check stock tickers and quotes.","url":"http://www.cnbc.com","category":"business","language":"en","country":"us"},
+    {"id":"cnn","name":"CNN","description":"View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN","url":"http://us.cnn.com","category":"general","language":"en","country":"us"},
+    {"id":"crypto-coins-news","name":"Crypto Coins News","description":"Providing breaking cryptocurrency news - focusing on Bitcoin, Ethereum, ICOs, blockchain technology, and smart contracts.","url":"https://www.ccn.com","category":"technology","language":"en","country":"us"},
     # {"id":"daily-mail","name":"Daily Mail","description":"All the latest news, sport, showbiz, science and health stories from around the world from the Daily Mail and Mail on Sunday newspapers.","url":"http://www.dailymail.co.uk/home/index.html","category":"entertainment","language":"en","country":"gb"},
     # {"id":"engadget","name":"Engadget","description":"Engadget is a web magazine with obsessive daily coverage of everything new in gadgets and consumer electronics.","url":"https://www.engadget.com","category":"technology","language":"en","country":"us"},
     # {"id":"entertainment-weekly","name":"Entertainment Weekly","description":"Online version of the print magazine includes entertainment news, interviews, reviews of music, film, TV and books, and a special area for magazine subscribers.","url":"http://www.ew.com","category":"entertainment","language":"en","country":"us"},
-    # {"id":"espn","name":"ESPN","description":"ESPN has up-to-the-minute sports news coverage, scores, highlights and commentary for NFL, MLB, NBA, College Football, NCAA Basketball and more.","url":"http://espn.go.com","category":"sports","language":"en","country":"us"},
+    {"id":"espn","name":"ESPN","description":"ESPN has up-to-the-minute sports news coverage, scores, highlights and commentary for NFL, MLB, NBA, College Football, NCAA Basketball and more.","url":"http://espn.go.com","category":"sports","language":"en","country":"us"},
     # {"id":"espn-cric-info","name":"ESPN Cric Info","description":"ESPN Cricinfo provides the most comprehensive cricket coverage available including live ball-by-ball commentary, news, unparalleled statistics, quality editorial comment and analysis.","url":"http://www.espncricinfo.com/","category":"sports","language":"en","country":"us"},
     # {"id":"financial-post","name":"Financial Post","description":"Find the latest happenings in the Canadian Financial Sector and stay up to date with changing trends in Business Markets. Read trading and investing advice from professionals.","url":"http://business.financialpost.com","category":"business","language":"en","country":"ca"},
     # {"id":"financial-times","name":"Financial Times","description":"The latest UK and international business, finance, economic and political news, comment and analysis from the Financial Times on FT.com.","url":"http://www.ft.com/home/uk","category":"business","language":"en","country":"gb"},
@@ -43,12 +39,12 @@ sources = [
     # {"id":"four-four-two","name":"FourFourTwo","description":"The latest football news, in-depth features, tactical and statistical analysis from FourFourTwo, the UK&#039;s favourite football monthly.","url":"http://www.fourfourtwo.com/news","category":"sports","language":"en","country":"gb"},
     # {"id":"fox-news","name":"Fox News","description":"Breaking News, Latest News and Current News from FOXNews.com. Breaking news and video. Latest Current News: U.S., World, Entertainment, Health, Business, Technology, Politics, Sports.","url":"http://www.foxnews.com","category":"general","language":"en","country":"us"},
     # {"id":"fox-sports","name":"Fox Sports","description":"Find live scores, player and team news, videos, rumors, stats, standings, schedules and fantasy games on FOX Sports.","url":"http://www.foxsports.com","category":"sports","language":"en","country":"us"},
-    # {"id":"google-news","name":"Google News","description":"Comprehensive, up-to-date news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"us"},
+    {"id":"google-news","name":"Google News","description":"Comprehensive, up-to-date news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"us"},
     # {"id":"google-news-au","name":"Google News (Australia)","description":"Comprehensive, up-to-date Australia news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"au"},
     # {"id":"google-news-ca","name":"Google News (Canada)","description":"Comprehensive, up-to-date Canada news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"ca"},
     # {"id":"google-news-in","name":"Google News (India)","description":"Comprehensive, up-to-date India news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"in"},
     # {"id":"google-news-uk","name":"Google News (UK)","description":"Comprehensive, up-to-date UK news coverage, aggregated from sources all over the world by Google News.","url":"https://news.google.com","category":"general","language":"en","country":"gb"},
-    # {"id":"hacker-news","name":"Hacker News","description":"Hacker News is a social news website focusing on computer science and entrepreneurship. It is run by Paul Graham's investment fund and startup incubator, Y Combinator. In general, content that can be submitted is defined as \"anything that gratifies one's intellectual curiosity\".","url":"https://news.ycombinator.com","category":"technology","language":"en","country":"us"},
+    {"id":"hacker-news","name":"Hacker News","description":"Hacker News is a social news website focusing on computer science and entrepreneurship. It is run by Paul Graham's investment fund and startup incubator, Y Combinator. In general, content that can be submitted is defined as \"anything that gratifies one's intellectual curiosity\".","url":"https://news.ycombinator.com","category":"technology","language":"en","country":"us"},
     # {"id":"ign","name":"IGN","description":"IGN is your site for Xbox One, PS4, PC, Wii-U, Xbox 360, PS3, Wii, 3DS, PS Vita and iPhone games with expert reviews, news, previews, trailers, cheat codes, wiki guides and walkthroughs.","url":"http://www.ign.com","category":"entertainment","language":"en","country":"us"},
     # {"id":"independent","name":"Independent","description":"National morning quality (tabloid) includes free online access to news and supplements. Insight by Robert Fisk and various other columnists.","url":"http://www.independent.co.uk","category":"general","language":"en","country":"gb"},
     # {"id":"mashable","name":"Mashable","description":"Mashable is a global, multi-platform media and entertainment company.","url":"http://mashable.com","category":"entertainment","language":"en","country":"us"},
@@ -85,7 +81,7 @@ sources = [
     # {"id":"the-guardian-uk","name":"The Guardian (UK)","description":"Latest news, sport, business, comment, analysis and reviews from the Guardian, the world's leading liberal voice.","url":"https://www.theguardian.com/uk","category":"general","language":"en","country":"gb"},
     # {"id":"the-hill","name":"The Hill","description":"The Hill is a top US political website, read by the White House and more lawmakers than any other site -- vital for policy, politics and election campaigns.","url":"http://thehill.com","category":"general","language":"en","country":"us"},
     # {"id":"the-hindu","name":"The Hindu","description":"The Hindu. latest news, analysis, comment, in-depth coverage of politics, business, sport, environment, cinema and arts from India's national newspaper.","url":"http://www.thehindu.com","category":"general","language":"en","country":"in"},
-    # {"id":"the-huffington-post","name":"The Huffington Post","description":"The Huffington Post is a politically liberal American online news aggregator and blog that has both localized and international editions founded by Arianna Huffington, Kenneth Lerer, Andrew Breitbart, and Jonah Peretti, featuring columnists.","url":"http://www.huffingtonpost.com","category":"general","language":"en","country":"us"},
+    {"id":"the-huffington-post","name":"The Huffington Post","description":"The Huffington Post is a politically liberal American online news aggregator and blog that has both localized and international editions founded by Arianna Huffington, Kenneth Lerer, Andrew Breitbart, and Jonah Peretti, featuring columnists.","url":"http://www.huffingtonpost.com","category":"general","language":"en","country":"us"},
     # {"id":"the-irish-times","name":"The Irish Times","description":"The Irish Times online. Latest news including sport, analysis, business, weather and more from the definitive brand of quality news in Ireland.","url":"https://www.irishtimes.com","category":"general","language":"en","country":"ie"},
     # {"id":"the-jerusalem-post","name":"The Jerusalem Post","description":"The Jerusalem Post is the leading online newspaper for English speaking Jewry since 1932, bringing news and updates from the Middle East and all over the Jewish world.","url":"https://www.jpost.com/","category":"general","language":"en","country":"is"},
     # {"id":"the-lad-bible","name":"The Lad Bible","description":"The LAD Bible is one of the largest community for guys aged 16-30 in the world. Send us your funniest pictures and videos!","url":"http://www.theladbible.com","category":"entertainment","language":"en","country":"gb"},
@@ -98,10 +94,10 @@ sources = [
     # {"id":"the-wall-street-journal","name":"The Wall Street Journal","description":"WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.","url":"http://www.wsj.com","category":"business","language":"en","country":"us"},
     {"id":"the-washington-post","name":"The Washington Post","description":"Breaking news and analysis on politics, business, world national news, entertainment more. In-depth DC, Virginia, Maryland news coverage including traffic, weather, crime, education, restaurant reviews and more.","url":"https://www.washingtonpost.com","category":"general","language":"en","country":"us"},
     # {"id":"the-washington-times","name":"The Washington Times","description":"The Washington Times delivers breaking news and commentary on the issues that affect the future of our nation.","url":"https://www.washingtontimes.com/","category":"general","language":"en","country":"us"},
-    # {"id":"time","name":"Time","description":"Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.","url":"http://time.com","category":"general","language":"en","country":"us"},
+    {"id":"time","name":"Time","description":"Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.","url":"http://time.com","category":"general","language":"en","country":"us"},
     # {"id":"usa-today","name":"USA Today","description":"Get the latest national, international, and political news at USATODAY.com.","url":"http://www.usatoday.com/news","category":"general","language":"en","country":"us"},
     # {"id":"vice-news","name":"Vice News","description":"Vice News is Vice Media, Inc.'s current affairs channel, producing daily documentary essays and video through its website and YouTube channel. It promotes itself on its coverage of \"under - reported stories\".","url":"https://news.vice.com","category":"general","language":"en","country":"us"},
-    # {"id":"wired","name":"Wired","description":"Wired is a monthly American magazine, published in print and online editions, that focuses on how emerging technologies affect culture, the economy, and politics.","url":"https://www.wired.com","category":"technology","language":"en","country":"us"}
+    {"id":"wired","name":"Wired","description":"Wired is a monthly American magazine, published in print and online editions, that focuses on how emerging technologies affect culture, the economy, and politics.","url":"https://www.wired.com","category":"technology","language":"en","country":"us"}
 ]
 
 sources.each { | source |
@@ -117,14 +113,36 @@ sources.each { | source |
 nyt = NewsSource.find_by(:news_source_id=>"the-new-york-times")
 wp = NewsSource.find_by(:news_source_id=>"the-washington-post")
 cbs = NewsSource.find_by(:news_source_id=>"cbs-news")
-cnbc = NewsSource.find_by(:news_source_id=>"cnbc")
+cnn = NewsSource.find_by(:news_source_id=>"cnn")
+ars = NewsSource.find_by(:news_source_id=>"ars-technica")  
+br = NewsSource.find_by(:news_source_id=>"bleacher-report")
+espn = NewsSource.find_by(:news_source_id=>"espn")
+google = NewsSource.find_by(:news_source_id=>"google-news")
+hacker = NewsSource.find_by(:news_source_id=>"hacker-news")
+hp = NewsSource.find_by(:news_source_id=>"the-huffington-post")
+time = NewsSource.find_by(:news_source_id=>"time")
+wired = NewsSource.find_by(:news_source_id=>"wired")
 
+u1 = User.create(:email => "waltercronkite@domain.com", :password => "test")
 UserNewsSource.create(:user_id => u1.id, :news_source_id => nyt.id)
-UserNewsSource.create(:user_id => u2.id, :news_source_id => wp.id)
-UserNewsSource.create(:user_id => u3.id, :news_source_id => cbs.id)
-UserNewsSource.create(:user_id => u3.id, :news_source_id => cnbc.id)
+UserNewsSource.create(:user_id => u1.id, :news_source_id => cbs.id)
+UserNewsSource.create(:user_id => u1.id, :news_source_id => wp.id)
+
+u2 = User.create(:email => "jonstewart@domain.com", :password => "test")
+UserNewsSource.create(:user_id => u2.id, :news_source_id => cnn.id)
+UserNewsSource.create(:user_id => u2.id, :news_source_id => google.id)
+UserNewsSource.create(:user_id => u2.id, :news_source_id => time.id)
+
+u3 = User.create(:email => "aaronrodgers@domain.com", :password => "test")
+UserNewsSource.create(:user_id => u3.id, :news_source_id => br.id)
+UserNewsSource.create(:user_id => u3.id, :news_source_id => espn.id)
+UserNewsSource.create(:user_id => u3.id, :news_source_id => google.id)
+
+u4 = User.create(:email => "avi@domain.com", :password => "test")
+UserNewsSource.create(:user_id => u4.id, :news_source_id => hacker.id)
 UserNewsSource.create(:user_id => u4.id, :news_source_id => nyt.id)
-UserNewsSource.create(:user_id => u4.id, :news_source_id => wp.id)
+UserNewsSource.create(:user_id => u4.id, :news_source_id => wired.id)
+
 
 # Sanity
 puts "#{u1.email} #{u1.news_sources[0].name}"
