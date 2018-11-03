@@ -31,4 +31,10 @@ export const UserLink = styled.button`
     background-color:#3F5941;
     display: block;
     margin: auto;
+    display: inline;
+`;
+
+export const SubText = styled.p`
+    padding-top: 2em;
+    font-size: 90%;
 `;

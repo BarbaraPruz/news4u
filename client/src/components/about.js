@@ -10,7 +10,7 @@ const About =  () =>
         News sources available through News4u app are limited to English.
         </p>      
         <p><a href="https://unsplash.com/@rawpixel" target="_blank" rel="noopener noreferrer">Photo by @rawpixel on Unsplash</a></p>
-        <p>For a quick try, try one of the following logins (password 'test')
+        <p>Anyone can sign up (no current validation of email). Or for a quick try, use one of the following logins (password 'test')
             <ul>
                 <li>waltercronkite@domain.com</li>
                 <li>jonstewart@domain.com</li>

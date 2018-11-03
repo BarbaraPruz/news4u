@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {UserForm, UserInput, UserButton, UserLink} from './user_form_style.js';
+import {UserForm, UserInput, UserButton, UserLink, SubText} from './user_form_style.js';
 
 class SignUpForm extends Component {
 
@@ -27,7 +27,7 @@ class SignUpForm extends Component {
                     <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />
                     <UserButton type="submit" >Sign Up</UserButton>
                 </form> 
-                <h4>Already registered? <UserLink onClick={this.props.handleSwitchForm}>Login!</UserLink></h4>              
+                <SubText>Already registered? <UserLink onClick={this.props.handleSwitchForm}>Login!</UserLink></SubText>              
             </UserForm>        
         );
     }
