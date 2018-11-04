@@ -71,7 +71,6 @@ export function updateUserPreferences(id,preferences) {
                 'Content-Type': 'application/json'
             })
         };
-
         fetch(`/api/users/${id}`, options)
             .then(res => handleAPIErrors(res))         
             .then(res => res.json())
