@@ -62,7 +62,8 @@ class Preferences extends Component {
     }
 
     render() {
-        // todo: match url to user logged in ?
+        // ToDo: should match the user id logged in to the pathname user id?
+        //console.log("Preferences Render",this.props.userId,this.props.location.pathname);
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>

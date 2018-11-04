@@ -7,7 +7,6 @@ import Headline from '../components/headline'
 class HeadlinesContainer extends Component {
 
     componentDidMount() {
-        console.log("Headlines did mount");
         //    if logged in, start action to retrieve data for user 
         if (this.props.isLoggedIn) {
             this.props.getHeadlines(this.props.newsSources)
@@ -15,7 +14,6 @@ class HeadlinesContainer extends Component {
     }
 
     render() {
-        console.log("Headlines Render",this.props.isLoggedIn);
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>
