@@ -32,6 +32,7 @@ class Preferences extends Component {
     }
                                                                                                             
     handleSubmit = (event) => {
+        // ToDo: should verify at least 1 source selected
         event.preventDefault();
         this.props.updateUserPreferences(this.props.userId, {newsSources:this.state.selectedSources});
         this.props.history.push('/');   // Go back to Headlines page

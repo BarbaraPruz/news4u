@@ -17,14 +17,11 @@ export function gettingHeadlines() {
 
 export function getHeadlines(newsSources) {
     let newsSourceIds = newsSources.map( source => source.news_source_id );
-    if (newsSourceIds.length === 0)
-        newsSourceIds.push("cnn");
 
     return (dispatch) => {
         dispatch(gettingHeadlines());
         const params = 'sources='+newsSourceIds.join();
         let uri = "https://newsapi.org/v2/top-headlines?"+params+"&apiKey="+apiKey;
-        //console.log("going to get headlines",uri);
         fetch(uri)
           .then(res => handleErrors(res))
           .then(response => response.json())
@@ -69,7 +66,7 @@ export function searchNews(newsSources,searchParams) {
         dispatch(gettingHeadlines());
         const sources = '&sources='+newsSourceIds.join();
         let uri = "https://newsapi.org/v2/everything?q="+query+sources+"&apiKey="+apiKey;
-        //console.log("going to search",uri);
+        console.log("going to search",uri);
         fetch(uri)
           .then(res => handleErrors(res))          
           .then(response => response.json())

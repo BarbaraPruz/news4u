@@ -51,7 +51,7 @@ class HeadlinesContainer extends Component {
         if (!this.props.isLoggedIn)
             return (
                 <p>You need to be logged in to use this option</p>
-            );               
+            );              
         return (
             <div className="content-section">
                 <h1>Headlines</h1>

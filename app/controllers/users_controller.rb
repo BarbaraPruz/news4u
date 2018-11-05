@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+        @user.news_sources << NewsSource.find_or_create_by(name: "CNN");        
         if @user.valid? then 
             render json: @user, status: 200
         else
