@@ -2,6 +2,24 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const InLineForm = styled.form`
+  padding: 1em;
+  margin: 10px auto 10px auto;
+  border: 1px solid #3F5941;
+  border-radius: 5px;      
+  height: auto;
+  width: 100%;
+`;
+
+const TitleLabel = styled.label`
+    font-size: 1.5em;
+    margin-right: 20px;
+`;
+
+const InlineLabel = styled.label`
+    margin-right: 20px;
+`;
+
 class FilterForm extends Component {
 
     isChecked = (source) => {
@@ -10,19 +28,17 @@ class FilterForm extends Component {
 
     renderSources = () => {
         return (this.props.allSources.map( (source, index) => 
-            <label>{source}<input type="checkbox" onChange={this.props.onChange} checked={this.isChecked(source)} value={source} /></label>
+            <InlineLabel>{source}<input type="checkbox" onChange={this.props.onChange} checked={this.isChecked(source)} value={source} /></InlineLabel>
         ))
     }
                                                                                                            
    render() {         
         return (
             <div className="content-section">
-                <div className="inline-form">
-                    <form >
-                        <label>Filter</label>
+                <InLineForm >
+                        <TitleLabel>News Sources:</TitleLabel>
                         {this.renderSources()}
-                    </form>           
-                </div>            
+                </InLineForm>                     
             </div> 
         )
     }
