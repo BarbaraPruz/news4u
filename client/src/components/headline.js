@@ -26,12 +26,6 @@ const HeadlineText = styled.div`
 
 class Headline extends Component {
 
-    state = {
-        likeCount: 0
-    }
-
-    handleClick = () => this.setState({likeCount: this.state.likeCount+1});
-
     render() {
         return ( 
             <HeadlineSection > 
@@ -43,8 +37,6 @@ class Headline extends Component {
                     <p>{this.props.headline.content}</p>
                     <h6><a href={this.props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
                 </HeadlineText>
-                <button onClick={this.handleClick}>Like</button>
-                {this.state.likeCount}
             </HeadlineSection>
         );
     }

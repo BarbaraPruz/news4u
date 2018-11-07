@@ -25,7 +25,7 @@ class UsersController < ApplicationController
             render json: {message: "Invalid Request"}, status: 401
         else
             # we want to replace all the existing news sources with the new list of sources
-            # Since news sources won't be too many, keeping it simple but just deleting all
+            # Since news sources won't be too many, keeping it simple by just deleting all
             # and then adding.  Alternatively, we could search for the exact differences...
             @user.news_sources.delete_all       
             params[:newsSources].each do | source | 

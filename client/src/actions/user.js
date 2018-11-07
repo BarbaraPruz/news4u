@@ -1,6 +1,7 @@
 import jwt_decode from 'jwt-decode';
 
 function handleAPIErrors(res) {
+    // this is needed to catch 404, 500 errors, etc.
     if (!res.ok) {
         throw Error(res.statusText);
     }

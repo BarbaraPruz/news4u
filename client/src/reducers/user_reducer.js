@@ -5,7 +5,7 @@ export default function userReducer(
     },     
     action) 
 {
-    console.log("UserReducer", action);
+    //console.log("UserReducer", action);
     switch (action.type) { 
         case "LOGIN_USER":
         // NOTE: not setting isLoggedIn until we get the users preferences

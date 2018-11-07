@@ -6,7 +6,7 @@ export default function newsReducer(
     },     
     action) 
 {
-    console.log("NewsReducer", action);
+    //console.log("NewsReducer", action);
     switch (action.type) { 
         case "GET_HEADLINES":
             return {...state, headlines: action.payload}  

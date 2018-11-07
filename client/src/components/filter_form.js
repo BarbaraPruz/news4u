@@ -28,7 +28,7 @@ class FilterForm extends Component {
 
     renderSources = () => {
         return (this.props.allSources.map( (source, index) => 
-            <InlineLabel>{source}<input type="checkbox" onChange={this.props.onChange} checked={this.isChecked(source)} value={source} /></InlineLabel>
+            <InlineLabel key={source}>{source}<input type="checkbox" onChange={this.props.onChange} checked={this.isChecked(source)} value={source} /></InlineLabel>
         ))
     }
                                                                                                            

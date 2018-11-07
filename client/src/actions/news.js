@@ -42,7 +42,7 @@ export function getNewsSources() {
     return (dispatch) => {
         dispatch(gettingNewsSources());
         let uri = "https://newsapi.org/v2/sources?language=en&apiKey="+apiKey;
-        console.log("going to get news sources",uri);
+        //console.log("going to get news sources",uri);
         fetch(uri)
           .then(res => handleErrors(res))        
           .then(response => response.json())
