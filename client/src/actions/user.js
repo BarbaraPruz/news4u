@@ -30,7 +30,6 @@ export function loginUser(credentials) {
             .then(res => handleAPIErrors(res))        
             .then(res => res.json())
             .then(res => {
-                console.log("login have result",res);
                 localStorage.setItem("jwt", res.jwt); // TODO: move to reducer?
                 let id = jwt_decode(res.jwt).sub;                
                 dispatch({type:"LOGIN_USER", token:res.jwt, id: id})
@@ -52,7 +51,8 @@ export function getUserPreferences( id) {
                     })})
             .then(res => handleAPIErrors(res))                            
             .then(res => res.json())
-            .then(res => dispatch({type: "SET_USER_PREFERENCES", payload:res})) 
+            .then(res =>{
+                dispatch({type: "SET_USER_PREFERENCES", payload:res})}) 
             .catch(function(error) {
                 console.log(error);
             })                     
@@ -130,13 +130,10 @@ export function signUpUser(credentials,history) {
               'Content-Type': 'application/json'
             }
         };
-        console.log("Signing Up User!",request);
-        // TODO: handle error
         fetch("api/users", options)
             .then(res => handleAPIErrors(res))         
             .then(res => res.json())
             .then(res => {
-                console.log("have result",res);
                 dispatch(loginUser(credentials))               
             })
             .catch(function(error) {

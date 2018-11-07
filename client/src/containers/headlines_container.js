@@ -10,7 +10,8 @@ class HeadlinesContainer extends Component {
     constructor (props) {
         super(props);
         // the container just needs to keep track of the source names
-        let sourceNames = props.newsSources.map ( (s) => s.name );
+        // occasionally, the newsSource won't have a name and so use the id stir
+        let sourceNames = props.newsSources.map ( (s) => s.name || s.news_source_id);
         this.state = {
             selectedSources: sourceNames,
             allSources: sourceNames.slice(0) //clone  

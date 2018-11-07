@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const HeadlineSection = styled.div`
@@ -24,17 +24,30 @@ const HeadlineText = styled.div`
     overflow: hidden;
 `;
 
-const Headline =  (props) => 
-    <HeadlineSection > 
-        { props.headline.urlToImage!=null ? <HeadlineImage src={props.headline.urlToImage} /> : null }        
-        <HeadlineText>
-            <h3>{props.headline.title}</h3>
-            <h5>{props.headline.source.name} at {props.headline.publishedAt}</h5>
-            <h5>{props.headline.description}</h5>
-            <p>{props.headline.content}</p>
-            <h6><a href={props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
-        </HeadlineText>
-    </HeadlineSection>
-;
+class Headline extends Component {
+
+    state = {
+        likeCount: 0
+    }
+
+    handleClick = () => this.setState({likeCount: this.state.likeCount+1});
+
+    render() {
+        return ( 
+            <HeadlineSection > 
+                { this.props.headline.urlToImage!=null ? <HeadlineImage src={this.props.headline.urlToImage} /> : null }        
+                <HeadlineText>
+                    <h3>{this.props.headline.title}</h3>
+                    <h5>{this.props.headline.source.name} at {this.props.headline.publishedAt}</h5>
+                    <h5>{this.props.headline.description}</h5>
+                    <p>{this.props.headline.content}</p>
+                    <h6><a href={this.props.headline.url} target="_blank" rel="noopener noreferrer">Full Article</a></h6>
+                </HeadlineText>
+                <button onClick={this.handleClick}>Like</button>
+                {this.state.likeCount}
+            </HeadlineSection>
+        );
+    }
+}
 
 export default Headline

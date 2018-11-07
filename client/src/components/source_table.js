@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 import SourceTableRow from '../components/source_table_row'
 import { StyledTable, StyledTableHeader, StyledTableRow, StyledTableHeaderTD1} from './source_table_style';
 
- 
-//   .td1 {
-//       margin: 2px;
-//       text-align: center;
-//   }
-  
-  
 
 class SourceTable extends Component {
 
@@ -26,14 +19,16 @@ class SourceTable extends Component {
    render() {
         return (
             <StyledTable>
-                <StyledTableRow>
-                    <StyledTableHeaderTD1 >&#x2714;</StyledTableHeaderTD1>
-                    <StyledTableHeader>Source</StyledTableHeader>
-                    <StyledTableHeader>Category</StyledTableHeader>
-                    <StyledTableHeader>Description</StyledTableHeader> 
-                    <StyledTableHeader>URL</StyledTableHeader>                   
-                </StyledTableRow>
-                {this.renderNewsSources()}
+                <tbody>
+                    <StyledTableRow>
+                        <StyledTableHeaderTD1 >&#x2714;</StyledTableHeaderTD1>
+                        <StyledTableHeader>Source</StyledTableHeader>
+                        <StyledTableHeader>Category</StyledTableHeader>
+                        <StyledTableHeader>Description</StyledTableHeader> 
+                        <StyledTableHeader>URL</StyledTableHeader>                   
+                    </StyledTableRow>
+                    {this.renderNewsSources()}
+                </tbody>
             </StyledTable>
         )
     }
