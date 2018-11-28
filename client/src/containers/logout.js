@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { logoutUser } from '../actions/user.js'
+import { logoutUser } from 'actions/user.js'
 
 class Logout extends Component {
 

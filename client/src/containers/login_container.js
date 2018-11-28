@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SignUpForm from '../components/signup_form';
-import LoginForm from '../components/login_form';
-import { loginUser, signUpUser } from '../actions/user';
+import SignUpForm from 'components/signup_form';
+import LoginForm from 'components/login_form';
+import { loginUser, signUpUser } from 'actions/user';
 
 import styled from 'styled-components';
-import img from '../images/holdingnewspaper2.jpg';
+import img from 'images/holdingnewspaper2.jpg';
 
 export const Splash = styled.div`
     min-height: 100%;

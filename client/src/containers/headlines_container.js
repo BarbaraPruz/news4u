@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getHeadlines } from '../actions/news'
-import Headline from '../components/headline'
-import FilterForm from '../components/filter_form'
+import { getHeadlines } from 'actions/news'
+import Headline from 'components/headline'
+import FilterForm from 'components/filter_form'
 
 class HeadlinesContainer extends Component {
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Article from '../components/article';
-import {searchClearResults} from '../actions/news';
+import Article from 'components/article';
+import {searchClearResults} from 'actions/news';
 
 class SearchResults extends Component {
 

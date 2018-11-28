@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { getNewsSources } from '../actions/news'
-import { updateUserPreferences } from '../actions/user'
-import SourceTable from '../components/source_table'
+import { getNewsSources } from 'actions/news'
+import { updateUserPreferences } from 'actions/user'
+import SourceTable from 'components/source_table'
 
 const PreferencesFormSection = styled.div`
   padding: 1em;

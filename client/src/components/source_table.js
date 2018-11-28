@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SourceTableRow from '../components/source_table_row'
-import { StyledTable, StyledTableHeader, StyledTableRow, StyledTableHeaderTD1} from './source_table_style';
+import SourceTableRow from 'components/source_table_row'
+import { StyledTable, StyledTableHeader, StyledTableRow, StyledTableHeaderTD1} from 'components/source_table_style';
 
 
 class SourceTable extends Component {

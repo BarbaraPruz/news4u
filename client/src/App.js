@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
-import './App.css';
-import LoginContainer from './containers/login_container';
+import 'App.css';
+import LoginContainer from 'containers/login_container';
 
 class App extends Component {
 

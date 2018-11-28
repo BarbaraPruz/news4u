@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledTableRow, StyledData1, StyledTableLink} from './source_table_style';
+import { StyledTableRow, StyledData1, StyledTableLink} from 'components/source_table_style';
 
 const SourceTableRow =  (props) => {
     return (

@@ -6,16 +6,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; 
 import thunk from 'redux-thunk';
 
-import './index.css';
-import App from './App';
-import About from './components/about';
-import HeadlinesContainer from './containers/headlines_container';
-import SearchContainer from './containers/search_container';
-import Preferences from './containers/preferences';
-import rootReducer from './reducers/root_reducer';
-import NavBar from './containers/navbar';
-import Logout from './containers/logout';
-import Footer from './components/footer';
+import 'index.css';
+import App from 'App';
+import About from 'components/about';
+import HeadlinesContainer from 'containers/headlines_container';
+import SearchContainer from 'containers/search_container';
+import Preferences from 'containers/preferences';
+import rootReducer from 'reducers/root_reducer';
+import NavBar from 'containers/navbar';
+import Logout from 'containers/logout';
+import Footer from 'components/footer';
 
 import * as serviceWorker from './serviceWorker';
 
