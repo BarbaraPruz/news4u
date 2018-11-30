@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import styled from 'styled-components';
+
+export const UserMessage = styled.div`
+    color: red;
+    font-size: 1.5em;
+`;
+
 class StatusMessage extends Component {
 
     render() {
         return (
-            <p style={{color: 'red', fontSize: "1.5em"}}>
-               {this.props.userMessage}
-            </p>
+            <UserMessage>
+               {this.props.message}
+            </UserMessage>
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-      userMessage: state.user.statusMessage,
+      message: state.user.statusMessage,
     }
   }
 export default connect(mapStateToProps)(StatusMessage)

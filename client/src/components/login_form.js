@@ -30,7 +30,7 @@ class LoginForm extends Component {
                     <UserButton type="submit" >Login</UserButton>
                 </form>
                 <SubText>New to news4u? <UserLink onClick={this.props.handleSwitchForm}>Sign Up!</UserLink></SubText>
-            </UserForm>        
+            </UserForm>      
         );
     }
 }
