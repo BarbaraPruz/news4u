@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import StatusMessage from 'containers/status_message';
 import {UserForm, UserInput, UserButton, UserLink, SubText} from 'components/user_form_style.js';
 
 class LoginForm extends Component {
@@ -22,6 +23,7 @@ class LoginForm extends Component {
         return (
             <UserForm>
                 <h1>news4u login</h1>
+                <StatusMessage />
                 <form onSubmit={ event => this.handleLogin(event) }>
                     <UserInput type="text" name="email" onChange={ event => this.handleChange(event) } placeholder="User Email" />
                     <UserInput type="password" name="password" onChange={ event => this.handleChange(event) } placeholder="Password" />

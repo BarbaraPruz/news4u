@@ -8,15 +8,16 @@ function handleAPIErrors(res) {
     return res;   
 }
 
-export function loggingIn() {
+export function setUserMessage(msg) {
     return {
-        type: 'LOGGING_IN'
+        type: 'SET_USER_MESSAGE',
+        payload: msg
     };
   }
   
 export function loginUser(credentials) {
     return (dispatch) => {
-        dispatch(loggingIn());
+        dispatch(setUserMessage("Logging in..."));
 
         const request = {"auth": {"email": credentials.email, "password": credentials.password}}
         const options = {
@@ -37,7 +38,8 @@ export function loginUser(credentials) {
                 dispatch(getUserPreferences(id))               
             })
             .catch(function(error) {
-                console.log(error);
+                console.log("Login Error",error);
+                dispatch(setUserMessage(`Login ${error}`));
             });             
     };
 }

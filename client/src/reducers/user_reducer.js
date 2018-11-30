@@ -1,6 +1,7 @@
 export default function userReducer(
     state = { 
         isLoggedIn:false,
+        statusMessage: "",
         newsSources: []
     },     
     action) 
@@ -9,7 +10,7 @@ export default function userReducer(
     switch (action.type) { 
         case "LOGIN_USER":
         // NOTE: not setting isLoggedIn until we get the users preferences
-            return {...state, jwt: action.token, id: action.id}
+            return {...state, statusMessage: "", jwt: action.token, id: action.id}
            
         case "SET_USER_PREFERENCES":
             // TODO: confirm payload id matches state id?
@@ -21,6 +22,9 @@ export default function userReducer(
         case "LOGGING_OUT":  // NOTE: we immediately want screen to go to login.  Meanwhile, sending API logout.
             return { ...state, jwt: null, id: 0, isLoggedIn: false}
 
+        case "SET_USER_MESSAGE":
+            return {...state, statusMessage: action.payload}
+            
         default:
             return state;
     }
