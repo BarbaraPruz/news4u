@@ -111,16 +111,10 @@ export function logoutUser() {
             });         
     }        
 }
-
-export function signingUpUser() {
-    return {
-        type: 'SIGNING_UP'
-    };
-  }
-  
+ 
 export function signUpUser(credentials,history) {
     return (dispatch) => {
-        dispatch(signingUpUser());
+        dispatch(setUserMessage("Signing up..."));
 
         const email = credentials.email;
         const password = credentials.password;
@@ -140,7 +134,8 @@ export function signUpUser(credentials,history) {
                 dispatch(loginUser(credentials))               
             })
             .catch(function(error) {
-                console.log(error);
+                console.log("Signup Error", error);
+                dispatch(setUserMessage(`Sign Up ${error}`));                
             }); 
     };
 }
