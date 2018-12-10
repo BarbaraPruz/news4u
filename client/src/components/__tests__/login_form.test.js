@@ -1,17 +1,25 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
+import Root from 'Root';
 import LoginForm from 'components/login_form';
 import StatusMessage from 'containers/status_message';
 
 let wrapped;
 
 beforeEach( () => {
-    wrapped = shallow(<LoginForm />);
+    //wrapped = shallow(<LoginForm />);
+    wrapped = mount(<Root><LoginForm /></Root>);
+});
+
+afterEach( () => {
+  wrapped.unmount();
 });
 
 it('contains a status message', () => {
-  //  expect(wrapped.render().text()).toContain("Comment 1");
-  //  expect(wrapped.render().text()).toContain("Comment 2");    
   expect(wrapped.find(StatusMessage).length).toEqual(1);
 });
+it('has 2 input fields', () => {
+  expect(wrapped.find('input').length).toEqual(2);
+});
+
