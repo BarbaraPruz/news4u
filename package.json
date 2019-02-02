@@ -1,0 +1,23 @@
+{
+  "name": "news4u",
+  "version": "1.0.0",
+  "description": "news4u is a web app that retrieves news from different news sources through newsapi.org API. news4u has a Rails backend and React/Redux front end.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarbaraPruz/news4u.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarbaraPruz/news4u/issues"
+  },
+  "homepage": "https://github.com/BarbaraPruz/news4u#readme"
+}
