@@ -1,0 +1,6 @@
+{
+  "name": "news4u",
+  "version": "1.0.0",
+  "description": "news4u is a web app that retrieves news from different news sources through newsapi.org API. news4u has a Rails backend and React/Redux front end.",
+   "private": true
+}
