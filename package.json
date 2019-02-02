@@ -1,16 +1,11 @@
 {
-  "name": "news4u",
-  "version": "1.0.0",
-  "description": "news4u is a web app that retrieves news from different news sources through newsapi.org API. news4u has a Rails backend and React/Redux front end.",
-  "private": true,
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "news4u",
+    "engines": {
+      "node": "6.3.1"
+    },
+    "scripts": {
+      "build": "cd client && npm install && npm run build && cd ..",
+      "deploy": "cp -a client/build/. public/",
+      "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+    }
 }
