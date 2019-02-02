@@ -10,7 +10,6 @@ import img from 'images/holdingnewspaper2.jpg';
 
 export const Splash = styled.div`
     min-height: 100%;
-    min-width: 1024px;
     width: 100%;
     height: auto;
     position: fixed;
@@ -20,6 +19,7 @@ export const Splash = styled.div`
     background-image: url(${img});
     background-size: cover; 
 `;
+
 
 
 class LoginContainer extends Component {

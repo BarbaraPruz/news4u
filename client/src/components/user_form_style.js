@@ -11,6 +11,9 @@ export const UserForm = styled.div`
     border-radius: 10px;
     padding: 2em;
     box-shadow: 0px 0px 10px 10px #464240;
+    @media (max-width: 1200px) {
+        width: 100%;
+    }    
 `;
 
 export const UserInput = styled.input`
@@ -18,6 +21,9 @@ export const UserInput = styled.input`
     margin: 1em auto 1em auto;
     padding: 0.5em;
     color: #464240;
+    @media (max-width: 1200px) {
+        width: 90%;
+    }      
 `;
 
 export const UserButton = styled.button`

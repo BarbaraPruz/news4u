@@ -7,6 +7,7 @@ Installation Instructions
 Fork and clone this GIT repo. 
 Set up backend by running bundle install, rake db:migrate and rake db:seed
 Set up frontend by going to client folder and running npm install
+Switch Procfile-save with Procfile (-save is for localhost environment, other version for heroku)
 
 Running news4f
 ------------------   
