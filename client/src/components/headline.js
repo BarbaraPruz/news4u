@@ -11,6 +11,10 @@ const HeadlineSection = styled.div`
   height: auto;
   width: 90%;
   float: left;
+  @media (max-width: 1200px) {
+    width: 100%;
+    float: none;
+}   
 `;
 
 const HeadlineImage = styled.img`
@@ -18,6 +22,13 @@ const HeadlineImage = styled.img`
     height: 220px; 
     margin-top:20px;
     padding-right: 2em; 
+    @media (max-width: 1200px) {
+        width: 100%;
+        height: auto;
+        float: none;
+        margin: 0;
+        padding: none;
+    }  
 `;
 
 const HeadlineText = styled.div`
