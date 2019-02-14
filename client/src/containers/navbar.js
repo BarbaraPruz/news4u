@@ -1,11 +1,11 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
+import { Navbar, Nav } from 'react-bootstrap'
 import styled from 'styled-components';
 
-const NewsNavbar = styled.div`
+const NewsNavbar = styled(Navbar)`
   padding: 1em;
   width: 100%;
   border: solid 5px #3F5941;
@@ -36,6 +36,9 @@ const NewsLink = styled(NavLink)`
     font-size: 18px;
 `;
 
+const optStyle = {
+    display: 'inline',
+};
 
 class NavBar extends Component {
     render() {
@@ -52,16 +55,22 @@ class NavBar extends Component {
                 <NewsLink to={`/users/${this.props.userId}/logout`} exact>Logout</NewsLink>            
         }
              
-        return (
-            <NewsNavbar>
+        return (           
+            <NewsNavbar collapseOnSelect expand="lg">
                 <NewsBrand
                     to="/" exact activeStyle={{textDecoration: 'underline'}}>
                     news4u
                 </NewsBrand>
-                {userOptions}
-                <NewsLink to="/about" exact >About</NewsLink>
-                {logoutOption}   
-            </NewsNavbar>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />  
+                <Navbar.Collapse id="responsive-navbar-nav" style={optStyle}>
+                    <Nav className="mr-auto" style={optStyle}>
+                        {userOptions}
+                        <NewsLink to="/about" exact >About</NewsLink>
+                        {logoutOption}
+                    </Nav>
+                </Navbar.Collapse>
+            </NewsNavbar>            
+
         );
     }
 }
@@ -74,3 +83,4 @@ const mapStateToProps = state => {
   }
   
 export default connect(mapStateToProps)(NavBar);
+

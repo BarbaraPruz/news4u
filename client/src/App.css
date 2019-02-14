@@ -7,8 +7,8 @@ body {
   top: 0;
 }
 .content-section {
-  padding: 1em;
-  margin: 1em auto 1em auto;
+  padding-top: 2em;
+  margin: 2em auto auto auto;
   background: white;
   color:#5d5856;
   text-align: left;

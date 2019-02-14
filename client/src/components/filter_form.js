@@ -34,7 +34,7 @@ class FilterForm extends Component {
                                                                                                            
    render() {         
         return (
-            <div className="content-section">
+            <div>
                 <InLineForm >
                         <TitleLabel>News Sources:</TitleLabel>
                         {this.renderSources()}
