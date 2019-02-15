@@ -61,9 +61,8 @@ class NavBar extends Component {
                     to="/" exact activeStyle={{textDecoration: 'underline'}}>
                     news4u
                 </NewsBrand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />  
                 <Navbar.Collapse id="responsive-navbar-nav" style={optStyle}>
-                    <Nav className="mr-auto" style={optStyle}>
+                    <Nav style={optStyle}>
                         {userOptions}
                         <NewsLink to="/about" exact >About</NewsLink>
                         {logoutOption}
