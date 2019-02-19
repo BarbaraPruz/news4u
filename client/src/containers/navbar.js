@@ -4,23 +4,20 @@ import { NavLink } from 'react-router-dom';
 
 import { Navbar, Nav } from 'react-bootstrap'
 import styled from 'styled-components';
-
+// height: auto;
 const NewsNavbar = styled(Navbar)`
-  padding: 1em;
   width: 100%;
   border: solid 5px #3F5941;
   background-color: white;
   color: #3F5941;
   text-align: left;
-  height: auto;
   position: fixed;
   top: 0; 
 `;
 
 const NewsBrand = styled(NavLink)`
-    width: 100px;
     padding: 5px 12px 12px 12px;
-    margin: 0 6px 6px;
+    margin: 0 0 0 0.5em;
     color: #3F5941;
     font-size: 48px;
     font-weight: bold;
@@ -30,15 +27,15 @@ const NewsBrand = styled(NavLink)`
 const NewsLink = styled(NavLink)`
     width: 100px;
     padding: 12px;
-    margin: 0 6px 6px;
+    margin: 0 6px 0px 0px;
     textDecoration: none;
     color: black;
     font-size: 18px;
 `;
 
-const optStyle = {
-    display: 'inline',
-};
+// const optStyle = {
+//     display: 'inline',
+// };
 
 class NavBar extends Component {
     render() {
@@ -47,28 +44,29 @@ class NavBar extends Component {
         if (this.props.userLoggedIn) {            
             userOptions = 
                 <React.Fragment>
-                    <NewsLink to="/headlines" exact >Headlines</NewsLink> 
-                    <NewsLink to="/search" exact >Search</NewsLink>  
+                    <NewsLink to="/headlines">Headlines</NewsLink> 
+                    <NewsLink to="/search">Search</NewsLink>  
                     <NewsLink to={`/users/${this.props.userId}/edit`}>Preferences</NewsLink>                              
                 </React.Fragment>
             logoutOption = 
-                <NewsLink to={`/users/${this.props.userId}/logout`} exact>Logout</NewsLink>            
+                <NewsLink to={`/users/${this.props.userId}/logout`}>Logout</NewsLink>            
         }
              
-        return (           
+        return (
             <NewsNavbar collapseOnSelect expand="lg">
                 <NewsBrand
                     to="/" exact activeStyle={{textDecoration: 'underline'}}>
                     news4u
                 </NewsBrand>
-                <Navbar.Collapse id="responsive-navbar-nav" style={optStyle}>
-                    <Nav style={optStyle}>
-                        {userOptions}
-                        <NewsLink to="/about" exact >About</NewsLink>
-                        {logoutOption}
-                    </Nav>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav >
+                    {userOptions}
+                    <NewsLink to="/about"  >About</NewsLink>
+                    {logoutOption}
+                </Nav>
                 </Navbar.Collapse>
-            </NewsNavbar>            
+          </NewsNavbar>                      
 
         );
     }
@@ -82,4 +80,19 @@ const mapStateToProps = state => {
   }
   
 export default connect(mapStateToProps)(NavBar);
+/*
 
+            <NewsNavbar collapseOnSelect expand="lg">
+                            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+
+                <Navbar.Collapse id="responsive-navbar-nav" style={optStyle}>
+                    <Nav style={optStyle}>
+
+
+                                       <Nav.Link href="#features">Features</Nav.Link>
+                    <Nav.Link href="#pricing">Pricing</Nav.Link>     
+                    </Nav>
+                </Navbar.Collapse>
+            </NewsNavbar>            
+
+            */
