@@ -7,8 +7,8 @@ import { updateUserPreferences } from 'actions/user'
 import SourceTable from 'components/source_table'
 
 const PreferencesFormSection = styled.div`
-  padding: 1em;
-  margin: 1em auto 1em auto;
+  padding: 2em;
+  margin: 2em auto 1em auto;
   background: white;
   color:#595959;
   text-align: left;
@@ -70,13 +70,15 @@ class Preferences extends Component {
                 <p>You need to be logged in to use this option</p>
             );               
         return (
-            <PreferencesFormSection>
-                <h1>Preferences</h1>
-                <form onSubmit={ event => this.handleSubmit(event) }>
-                    <SourceTable onChange={this.onChange} allSources={this.props.allSources} selectedSources={this.state.selectedSources} />
-                    <SubmitButton type="submit" >Save</SubmitButton>
-                </form> 
-            </PreferencesFormSection> 
+            <div class="content-section">
+                <PreferencesFormSection>
+                    <h1>Preferences</h1>
+                    <form onSubmit={ event => this.handleSubmit(event) }>
+                        <SourceTable onChange={this.onChange} allSources={this.props.allSources} selectedSources={this.state.selectedSources} />
+                        <SubmitButton type="submit" >Save</SubmitButton>
+                    </form> 
+                </PreferencesFormSection> 
+            </div>
         )
     }
 }

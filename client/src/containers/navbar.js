@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import { Navbar, Nav } from 'react-bootstrap'
 import styled from 'styled-components';
-// height: auto;
+
 const NewsNavbar = styled(Navbar)`
   width: 100%;
   border: solid 5px #3F5941;
@@ -25,17 +25,13 @@ const NewsBrand = styled(NavLink)`
 `;
 
 const NewsLink = styled(NavLink)`
-    width: 100px;
     padding: 12px;
-    margin: 0 6px 0px 0px;
+    margin: 0 12px 0px 0px;
     textDecoration: none;
     color: black;
     font-size: 18px;
 `;
 
-// const optStyle = {
-//     display: 'inline',
-// };
 
 class NavBar extends Component {
     render() {
@@ -80,19 +76,3 @@ const mapStateToProps = state => {
   }
   
 export default connect(mapStateToProps)(NavBar);
-/*
-
-            <NewsNavbar collapseOnSelect expand="lg">
-                            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-
-                <Navbar.Collapse id="responsive-navbar-nav" style={optStyle}>
-                    <Nav style={optStyle}>
-
-
-                                       <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>     
-                    </Nav>
-                </Navbar.Collapse>
-            </NewsNavbar>            
-
-            */
