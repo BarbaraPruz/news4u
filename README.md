@@ -9,7 +9,7 @@ Set up backend by running bundle install, rake db:migrate and rake db:seed
 Set up frontend by going to client folder and running npm install
 For running on localhost, copy Procfile-localhost to Procfile.
 
-Running news4f
+Running news4u
 ------------------   
 rake start
 
