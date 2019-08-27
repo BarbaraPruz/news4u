@@ -1,7 +1,7 @@
 {
   "name": "news4u",
   "engines": {
-    "node": "6.3.1"
+    "node": "10.3.0"
   },
   "scripts": {
     "build": "cd client && npm install && npm run build && cd ..",
