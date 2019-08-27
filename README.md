@@ -9,8 +9,11 @@ Set up backend by running bundle install, rake db:migrate and rake db:seed
 Set up frontend by going to client folder and running npm install
 For running on localhost, copy Procfile-localhost to Procfile.
 
-Running news4u
-------------------   
+Running news4u 
+------------------  
+news4u db is postgresql so make sure it is running! 
+(ie. mac: pg_ctl -D /usr/local/var/postgres start  ) 
+
 rake start
 
 Test user logins (all passwords are 'test')
